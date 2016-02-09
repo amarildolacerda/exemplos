@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/03/04 10:06:31.536.pas,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit77.pas=C:\fontes\treinamento\Dia6_AcessoMultiThread_Attrib\uForm.pas</Transaction>
+    <Transaction>2013/03/04 10:06:31.536.dfm,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit77.dfm=C:\fontes\treinamento\Dia6_AcessoMultiThread_Attrib\uForm.dfm</Transaction>
+    <Transaction>2013/03/04 10:06:46.569.bdsproj,C:\Users\amarildo\Documents\RAD Studio\Projects\Project68.bdsproj=C:\fontes\treinamento\Dia6_AcessoMultiThread_Attrib\ProjetoDia6.bdsproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,13 @@
+- Cria projeto tipo app VCL.
+
+Passo 1:
+passa a conexão do banco de dados para o projeto;
+
+Passo 2:
+incluir tratamento para transação
+
+Passo3: 
+Usar  ActiveSqlUpdate
+
+Passo4:
+Usar as lista para fazer cache de cadastros

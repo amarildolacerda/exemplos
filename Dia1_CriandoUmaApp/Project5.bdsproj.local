@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2012/01/30 10:10:38.192.pas,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit6.pas=C:\treinamento\Dia1_CriandoUmaApp\Unit6.pas</Transaction>
+    <Transaction>2012/01/30 10:10:38.192.dfm,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit6.dfm=C:\treinamento\Dia1_CriandoUmaApp\Unit6.dfm</Transaction>
+    <Transaction>2012/01/30 10:10:40.045.bdsproj,C:\Users\amarildo\Documents\RAD Studio\Projects\Project5.bdsproj=C:\treinamento\Dia1_CriandoUmaApp\Project5.bdsproj</Transaction>
+    <Transaction>2012/01/30 10:50:57.907.pas,C:\treinamento\Dia1_CriandoUmaApp\Unit6.pas=C:\treinamento\Dia1_CriandoUmaApp\UnitCommitManual.pas</Transaction>
+    <Transaction>2012/01/30 10:50:57.907.dfm,C:\treinamento\Dia1_CriandoUmaApp\Unit6.dfm=C:\treinamento\Dia1_CriandoUmaApp\UnitCommitManual.dfm</Transaction>
+    <Transaction>2012/01/30 11:31:42.511.pas,C:\treinamento\Dia1_CriandoUmaApp\Unit6.pas=C:\treinamento\Dia1_CriandoUmaApp\Unit6_UsandoDataChange_do_Datasource.pas</Transaction>
+    <Transaction>2012/01/30 11:31:42.511.dfm,C:\treinamento\Dia1_CriandoUmaApp\Unit6.dfm=C:\treinamento\Dia1_CriandoUmaApp\Unit6_UsandoDataChange_do_Datasource.dfm</Transaction>
+    <Transaction>2012/01/30 11:31:53.405.pas,C:\treinamento\Dia1_CriandoUmaApp\Unit6_UsandoDataChange_do_Datasource.pas=C:\treinamento\Dia1_CriandoUmaApp\Unit6.pas</Transaction>
+    <Transaction>2012/01/30 11:31:53.405.dfm,C:\treinamento\Dia1_CriandoUmaApp\Unit6_UsandoDataChange_do_Datasource.dfm=C:\treinamento\Dia1_CriandoUmaApp\Unit6.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/02/19 13:26:43.000.497,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Dia12_Paralllel\wFutureTest.dproj</Transaction>
+    <Transaction>2015/02/19 13:26:54.000.926,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit2.dfm=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\uFutureTest.dfm</Transaction>
+    <Transaction>2015/02/19 15:11:54.000.347,C:\fontes\treinamento\Dia12_Threading_IFuture\wFutureTest.dproj=C:\fontes\treinamento\Dia12_Threading_IFuture\FutureTest.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

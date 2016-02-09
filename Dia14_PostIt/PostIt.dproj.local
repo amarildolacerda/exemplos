@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/05/15 18:37:35.000.746,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2015/05/15 18:37:43.000.629,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2015/05/15 18:38:32.000.747,C:\fontes\treinamento\Dia14_PostIt\wFormPostItMain.pas=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2015/05/15 18:38:32.000.747,C:\fontes\treinamento\Dia14_PostIt\wFormPostItMain.dfm=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit4.dfm</Transaction>
+    <Transaction>2015/05/15 18:38:52.000.530,C:\fontes\treinamento\Dia14_PostIt\PostIt.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2015/05/15 22:07:22.000.618,=C:\fontes\treinamento\Dia14_PostIt\Unit1.pas</Transaction>
+    <Transaction>2015/05/15 22:07:51.000.996,C:\fontes\treinamento\Dia14_PostIt\Unit1.pas=C:\fontes\Encomendas\jvMovablePanel.pas</Transaction>
+    <Transaction>2015/05/15 22:08:50.000.550,C:\fontes\Encomendas\jvMovablePanel.pas=C:\fontes\Encomendas\JvStickyPanel.pas</Transaction>
+    <Transaction>2015/05/15 22:12:22.000.426,C:\fontes\Encomendas\JvStickyPanel.pas=C:\fontes\Encomendas\JvStickerPanel.pas</Transaction>
+  </Transactions>
+</BorlandProject>

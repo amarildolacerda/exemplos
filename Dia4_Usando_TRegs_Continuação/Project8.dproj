@@ -1,0 +1,142 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{00c65f46-74ef-47c7-81f5-ffc50ac45b17}</ProjectGuid>
+    <MainSource>Project8.dpr</MainSource>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+    <DCC_DependencyCheckOutputName>Project8.exe</DCC_DependencyCheckOutputName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_DebugInformation>False</DCC_DebugInformation>
+    <DCC_LocalDebugSymbols>False</DCC_LocalDebugSymbols>
+    <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    <DCC_Define>RELEASE</DCC_Define>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <Version>7.0</Version>
+    <DCC_Define>DEBUG</DCC_Define>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Delphi.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+<BorlandProject><Delphi.Personality><Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><VersionInfo><VersionInfo Name="IncludeVerInfo">False</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1046</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="c:\fontes\bpl\JvBDED11R.bpl">JVCL BDE Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\QR4runD2007.bpl">QuickReport 4 Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvAppFrmD11R.bpl">JVCL Application and Form Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvDlgsD11R.bpl">JVCL Dialog Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvDBD11R.bpl">JVCL Database Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvCustomD11R.bpl">JVCL Custom Controls Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JclVcl110.bpl">JEDI Code Library VCL package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvCmpD11R.bpl">JVCL Non-Visual Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvMMD11R.bpl">JVCL Multimedia and Image Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvCtrlsD11R.bpl">JVCL Visual Controls Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvStdCtrlsD11R.bpl">JVCL Standard Controls Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvSystemD11R.bpl">JVCL System Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvCoreD11R.bpl">JVCL Core Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\Jcl110.bpl">JEDI Code Library RTL package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvBandsD11R.bpl">JVCL Band Objects Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvCryptD11R.bpl">JVCL Encryption and Compression Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvDockingD11R.bpl">JVCL Docking Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvDotNetCtrlsD11R.bpl">JVCL DotNet Controls Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvEDID11R.bpl">JVCL EDI Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvGlobusD11R.bpl">JVCL Globus Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvHMID11R.bpl">JVCL HMI Controls Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvInterpreterD11R.bpl">JVCL Interpreter Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvJansD11R.bpl">JVCL Jans Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvManagedThreadsD11R.bpl">JVCL Managed Threads Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvNetD11R.bpl">JVCL Network Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvPluginD11R.bpl">JVCL Plugin Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvPrintPreviewD11R.bpl">JVCL Print Preview Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvRuntimeDesignD11R.bpl">JVCL Runtime Design Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvTimeFrameworkD11R.bpl">JVCL Time Framework Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvValidatorsD11R.bpl">JVCL Validators and Error Provider Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvWizardD11R.bpl">JVCL Wizard Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvXPCtrlsD11R.bpl">JVCL XP Controls Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="c:\fontes\bpl\JvPageCompsD11R.bpl">JVCL Page Style Components Runtime Package</Excluded_Packages>
+      <Excluded_Packages Name="C:\fontes\BPL\FrameViewer2005.bpl">ThtmlViewer, TFrameViewer, and TFrameBrowser</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages><Source><Source Name="MainSource">Project8.dpr</Source></Source></Delphi.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
+  <ItemGroup>
+    <DelphiCompile Include="Project8.dpr">
+      <MainSource>MainSource</MainSource>
+    </DelphiCompile>
+    <DCCReference Include="Unit8.pas">
+      <Form>Form8</Form>
+    </DCCReference>
+  </ItemGroup>
+</Project>

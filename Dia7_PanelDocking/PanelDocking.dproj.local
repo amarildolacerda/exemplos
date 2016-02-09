@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/05/27 11:57:59.279.pas,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit5.pas=C:\fontes\treinamento\Dia7_PanelDocking\wMain.pas</Transaction>
+    <Transaction>2013/05/27 11:57:59.279.dfm,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit5.dfm=C:\fontes\treinamento\Dia7_PanelDocking\wMain.dfm</Transaction>
+    <Transaction>2013/05/27 11:58:12.325.dproj,C:\Users\amarildo\Documents\RAD Studio\Projects\Project5.dproj=C:\fontes\treinamento\Dia7_PanelDocking\PanelDocking.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

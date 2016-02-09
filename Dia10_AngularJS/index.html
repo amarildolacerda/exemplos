@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="app">
+<head>
+   <script src="./vendor/angular.min.js"></script>
+
+</head>
+
+<body>
+
+
+     Codigo: <input ng-model="codigo">
+     <a ng-href="getCodigo()" href="#">Testar</a>
+
+
+     Digita:  {{ codigo }}
+
+</body ng-controller="tarefaController">
+
+
+
+<script>
+
+   var app = angular.module('app',[]);
+
+
+   function tarefaController($scope)
+   {
+
+     $scope.getCodigo = function(){
+     	$scope.digitado = $scope.codigo;
+     	return $scope.codigo;
+
+     };
+
+
+   }
+
+</script>
+
+
+</html>

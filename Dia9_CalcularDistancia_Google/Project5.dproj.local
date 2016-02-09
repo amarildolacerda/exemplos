@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2013/05/29 13:12:12.866.pas,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit6.pas=C:\fontes\treinamento\Dia9_CalcularDistancia_Google\Unit6.pas</Transaction>
+    <Transaction>2013/05/29 13:12:12.866.dfm,C:\Users\amarildo\Documents\RAD Studio\Projects\Unit6.dfm=C:\fontes\treinamento\Dia9_CalcularDistancia_Google\Unit6.dfm</Transaction>
+    <Transaction>2013/05/29 13:12:14.114.dproj,C:\Users\amarildo\Documents\RAD Studio\Projects\Project5.dproj=C:\fontes\treinamento\Dia9_CalcularDistancia_Google\Project5.dproj</Transaction>
+    <Transaction>2013/05/29 16:07:34.448.pas,C:\fontes\treinamento\Dia9_CalcularDistancia_Google\Unit6.pas=C:\fontes\Comum\wGoogleCalculoDistancias.pas</Transaction>
+    <Transaction>2013/05/29 16:07:34.448.dfm,C:\fontes\treinamento\Dia9_CalcularDistancia_Google\Unit6.dfm=C:\fontes\Comum\wGoogleCalculoDistancias.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

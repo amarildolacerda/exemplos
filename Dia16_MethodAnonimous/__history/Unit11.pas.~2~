@@ -1,0 +1,142 @@
+unit Unit11;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm11 = class(TForm)
+    Memo1: TMemo;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+  private
+    FDatabasename: String;
+    procedure SetDatabasename(const Value: String);
+    { Private declarations }
+  public
+    { Public declarations }
+    procedure executar;
+    procedure mostrarLinha(i: integer);
+    procedure mostrar(AProc: TProc);
+    procedure mensagem(texto:string);
+    property Databasename: String read FDatabasename write SetDatabasename;
+  end;
+
+var
+  Form11: TForm11;
+
+implementation
+
+{$R *.dfm}
+
+uses db_store, data.db.helper;
+
+procedure TForm11.Button1Click(Sender: TObject);
+begin
+  executar;
+end;
+
+procedure TForm11.Button2Click(Sender: TObject);
+begin
+
+  TThread.CreateAnonymousThread(
+    procedure
+    begin
+      executar;
+    end).Start;
+
+end;
+
+procedure TForm11.Button3Click(Sender: TObject);
+begin
+  mostrar(
+    procedure
+    var
+      i: integer;
+    begin
+      for i := 0 to 1000 do
+        mostrarLinha(i);
+    end);
+end;
+
+procedure TForm11.Button4Click(Sender: TObject);
+begin
+
+  TThread.CreateAnonymousThread(
+    procedure
+    begin
+      with createQuery(FDatabasename) do
+        try
+          SQLDBFile := 'sigcad';
+          SQLFields := 'nome';
+          open;
+
+          DoLoopEvent(
+            procedure
+            begin
+                mensagem( FieldBYName('nome').asString);
+            end);
+
+          (* while eof=false do
+            begin
+            memo1.Lines.Add(FieldBYName('nome').asString);
+            next;
+            end;
+          *)
+
+        finally
+          free;
+        end;
+    end).Start;
+
+end;
+
+procedure TForm11.executar;
+var
+  i: integer;
+begin
+
+  for i := 0 to 10000 do
+    mostrarLinha(i);
+
+end;
+
+procedure TForm11.FormCreate(Sender: TObject);
+begin
+  FDatabasename := 'aliasEstoque';
+  ConnectDataBaseFromIni('SQLEstoque', FDatabasename, 'estoque.ini', true);
+end;
+
+procedure TForm11.mensagem(texto: string);
+begin
+  TThread.Queue(TThread.CurrentThread , procedure begin
+       memo1.Lines.Add(texto);
+    end);
+end;
+
+procedure TForm11.mostrar(AProc: TProc);
+begin
+  AProc;
+end;
+
+procedure TForm11.mostrarLinha(i: integer);
+begin
+   mensagem(intToStr(i));
+end;
+
+procedure TForm11.SetDatabasename(const Value: String);
+begin
+  FDatabasename := Value;
+end;
+
+end.
