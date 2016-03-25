@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/01/29 23:38:24.000.159,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit35.pas</Transaction>
+    <Transaction>2016/02/02 13:56:40.000.625,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit35.pas</Transaction>
+    <Transaction>2016/02/09 12:20:00.221,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit35.pas</Transaction>
+    <Transaction>2016/02/09 12:20:46.356,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit36.pas</Transaction>
+    <Transaction>2016/02/09 12:21:05.028,C:\fontes\Comum\System.Helpers.pas=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit36.pas</Transaction>
+    <Transaction>2016/02/09 12:21:57.934,C:\fontes\Comum\Unit35.pas=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit35.pas</Transaction>
+    <Transaction>2016/02/09 12:21:57.934,C:\fontes\Comum\Unit35.dfm=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit35.dfm</Transaction>
+    <Transaction>2016/02/09 12:22:00.318,C:\fontes\Comum\Project28.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project28.dproj</Transaction>
+    <Transaction>2016/02/09 12:23:46.790,C:\git\Exemplos\Dia19_Double_Helpers\Project28.dproj=C:\fontes\Comum\Project28.dproj</Transaction>
+    <Transaction>2016/02/09 12:24:19.072,C:\git\Exemplos\Dia19_Double_Helpers\Unit35.dfm=C:\fontes\Comum\Unit35.dfm</Transaction>
+    <Transaction>2016/02/09 12:24:19.072,C:\git\Exemplos\Dia19_Double_Helpers\Unit35.pas=C:\fontes\Comum\Unit35.pas</Transaction>
+    <Transaction>2016/02/09 14:26:13.011,C:\fontes\Comum\System.SysUtils.Helpers.pas=C:\fontes\Comum\System.Helpers.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5" Android="4f0bfa23"/>
+	</ActiveMobileDevice>
+</BorlandProject>

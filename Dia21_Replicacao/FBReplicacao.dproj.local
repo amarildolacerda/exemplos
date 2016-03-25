@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/03/25 13:49:56.303,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit41.pas</Transaction>
+    <Transaction>2016/03/25 13:51:13.572,C:\fontes\treinamento\Dia21_Replicacao\uReplicacao.dfm=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit41.dfm</Transaction>
+    <Transaction>2016/03/25 13:51:13.572,C:\fontes\treinamento\Dia21_Replicacao\uReplicacao.pas=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit41.pas</Transaction>
+    <Transaction>2016/03/25 13:51:16.258,C:\fontes\treinamento\Dia21_Replicacao\Replicacao.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project34.dproj</Transaction>
+    <Transaction>2016/03/25 15:40:51.435,C:\fontes\treinamento\Dia21_Replicacao\FBReplicacao.dproj=C:\fontes\treinamento\Dia21_Replicacao\Replicacao.dproj</Transaction>
+    <Transaction>2016/03/25 15:41:12.544,C:\fontes\treinamento\Dia21_Replicacao\uFBFormReplicacao.pas=C:\fontes\treinamento\Dia21_Replicacao\uReplicacao.pas</Transaction>
+    <Transaction>2016/03/25 15:41:12.544,C:\fontes\treinamento\Dia21_Replicacao\uFBFormReplicacao.dfm=C:\fontes\treinamento\Dia21_Replicacao\uReplicacao.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

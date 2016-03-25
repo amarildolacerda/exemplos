@@ -1,0 +1,15 @@
+program Project28;
+
+uses
+  Vcl.Forms,
+  Unit35 in 'C:\fontes\Comum\Unit35.pas' {Form35},
+  System.Helpers in 'C:\fontes\Comum\System.Helpers.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm35, Form35);
+  Application.Run;
+end.

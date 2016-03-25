@@ -1,0 +1,38 @@
+unit Unit35;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  System.Helpers,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm35 = class(TForm)
+    Edit1: TEdit;
+    Label1: TLabel;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Valor:Double;
+  end;
+
+var
+  Form35: TForm35;
+
+implementation
+
+{$R *.dfm}
+
+uses System.uJson;
+
+
+procedure TForm35.Button1Click(Sender: TObject);
+begin
+   label1.Caption :=  valor.add(  edit1.Text.ToFloat     ).toString;
+end;
+
+end.
