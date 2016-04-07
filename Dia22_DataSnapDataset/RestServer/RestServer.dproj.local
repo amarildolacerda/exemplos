@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/04/06 22:18:11.535,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\FormUnit1.pas</Transaction>
+    <Transaction>2016/04/06 22:18:11.891,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2016/04/06 22:18:12.441,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\WebModuleUnit1.pas</Transaction>
+    <Transaction>2016/04/06 22:18:12.854,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\base64.js</Transaction>
+    <Transaction>2016/04/06 22:18:12.923,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\ServerFunctionExecutor.js</Transaction>
+    <Transaction>2016/04/06 22:18:12.982,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\json2.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.024,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\CallbackFramework.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.094,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\ServerFunctions.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.202,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\base64-min.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.287,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\json2-min.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.355,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\ServerFunctionExecutor-min.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.388,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\CallbackFramework-min.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.410,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\connection.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.459,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\js\ServerFunctionInvoker.js</Transaction>
+    <Transaction>2016/04/06 22:18:13.485,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\css\main.css</Transaction>
+    <Transaction>2016/04/06 22:18:13.586,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\css\ServerFunctionInvoker.css</Transaction>
+    <Transaction>2016/04/06 22:18:13.675,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\templates\ReverseString.html</Transaction>
+    <Transaction>2016/04/06 22:18:13.739,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\templates\ServerFunctionInvoker.html</Transaction>
+    <Transaction>2016/04/06 22:18:13.768,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\images\collapse.png</Transaction>
+    <Transaction>2016/04/06 22:18:13.803,=C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\images\expand.png</Transaction>
+  </Transactions>
+</BorlandProject>

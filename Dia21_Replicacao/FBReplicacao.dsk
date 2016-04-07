@@ -12,13 +12,12 @@ File_9=TSourceModule,'C:\fontes\WBAReportXE\ParamReport.pas',0,1,1,1,1,0,0,,
 File_10=TSourceModule,'C:\fontes\Comum_Listas\uTab_Explitem.pas',0,1,537,51,565,0,0,,
 File_11=TSourceModule,'c:\fontes\controls\mInterfaces.pas',0,1,125,16,125,0,0,,
 File_12=TSourceModule,'C:\fontes\Comum_Listas\uTab_Explcad.pas',0,1,1223,37,1233,0,0,,
-File_13=TSourceModule,'C:\fontes\Encomendas\wMenu8.pas',0,1,1131,1,1135,0,0,{{676,0},{705,11},{'Verifica Módulo Liberado Para Uso'}},
+File_13=TSourceModule,'C:\fontes\Encomendas\wMenu8.pas',0,1,1131,1,1135,0,0,{{676,0}
 
 [Modules]
 Module0=C:\fontes\treinamento\Dia21_Replicacao\uFBFormReplicacao.pas
 Module1=C:\fontes\Sincronismo\PDVSync\uSyncReplicacao.pas
-Module2=C:\fontes\treinamento\Dia21_Replicacao\FBReplicacao.dproj
-Count=3
+Count=2
 EditWindowCount=1
 
 [C:\fontes\treinamento\Dia21_Replicacao\uFBFormReplicacao.pas]
@@ -31,15 +30,11 @@ ModuleType=TSourceModule
 FormState=0
 FormOnTop=0
 
-[C:\fontes\treinamento\Dia21_Replicacao\FBReplicacao.dproj]
-ModuleType=TBaseProject
-
 [EditWindow0]
-ViewCount=3
+ViewCount=2
 CurrentEditView=C:\fontes\treinamento\Dia21_Replicacao\uFBFormReplicacao.pas
 View0=0
 View1=1
-View2=2
 PercentageSizes=1
 Create=1
 Visible=1
@@ -81,17 +76,6 @@ Bookmarks=
 EditViewName=Borland.FormDesignerView
 
 [View1]
-CustomEditViewType=TEditView
-Module=C:\fontes\treinamento\Dia21_Replicacao\FBReplicacao.dpr
-CursorX=5
-CursorY=3
-TopLine=1
-LeftCol=1
-Elisions=
-Bookmarks=
-EditViewName=C:\fontes\treinamento\Dia21_Replicacao\Replicacao.dpr
-
-[View2]
 CustomEditViewType=TEditView
 Module=C:\fontes\Sincronismo\PDVSync\uSyncReplicacao.pas
 CursorX=52
@@ -284,7 +268,7 @@ SplitPos=163
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,CustomHint
+SelectedItem=Action,CustomHint
 ExpandedItems=ConnectedStoredUsage=0,FetchOptions=0,FormatOptions=0,"LiveBindings Designer=0",Params=0,ResourceOptions=0,Anchors=1,Constraints=0,BevelEdges=0,LiveBindings=0,Font=0,Margins=0,StyleElements=0,Padding=0,Touch=0,ActiveStoredUsage=0,UpdateOptions=0,BorderIcons=0,TxOptions=0
 
 [frmDesignPreview]
@@ -648,5 +632,5 @@ Dockable=1
 StayOnTop=0
 TabPosition=1
 ActiveTabID=ProjectManager
-TabDockClients=ProjectManager,DataExplorerContainer,frmDesignPreview
+TabDockClients=ProjectManager,frmDesignPreview,DataExplorerContainer
 

@@ -1,0 +1,162 @@
+unit ServerMethodsUnit1;
+
+interface
+
+uses System.SysUtils, System.Classes, System.Json,
+    Data.FireDACJSONReflect,
+    Datasnap.DSServer, Datasnap.DSAuth, DataSnap.DSProviderDataModuleAdapter,
+  FireDAC.Stan.StorageJSON, FireDAC.Stan.StorageBin;
+
+type
+{$METHODINFO ON}
+  TServerMethods1 = class(TDataModule)
+    FDStanStorageJSONLink1: TFDStanStorageJSONLink;
+    FDStanStorageBinLink1: TFDStanStorageBinLink;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    function EchoString(Value: string): string;
+    function ReverseString(Value: string): string;
+    function GetCliente(codigo:int64):TJSONValue;
+    function GetCliente2(codigo:int64):TFDJSONDataSets;
+  end;
+{$METHODINFO OFF}
+
+implementation
+
+
+{$R *.dfm}
+uses System.StrUtils, FireDac.ObjectDataSet, Data.db.helper;
+
+function TServerMethods1.EchoString(Value: string): string;
+begin
+  Result := Value;
+end;
+
+type
+    TClientes = class
+  private
+    FCodigo: int64;
+    FNome: string;
+    FCidade: string;
+    FDebitos: double;
+    FEndereco: string;
+    FEstado: String;
+    procedure SetCidade(const Value: string);
+    procedure SetCodigo(const Value: int64);
+    procedure SetDebitos(const Value: double);
+    procedure SetEndereco(const Value: string);
+    procedure SetEstado(const Value: String);
+    procedure SetNome(const Value: string);
+      public
+        property Codigo:int64 read FCodigo write SetCodigo;
+        property Nome:string read FNome write SetNome;
+        property Cidade:string read FCidade write SetCidade;
+        property Estado:String read FEstado write SetEstado;
+        property Endereco:string read FEndereco write SetEndereco;
+        property Debitos:double read FDebitos write SetDebitos;
+    end;
+
+function TServerMethods1.GetCliente(codigo: int64): TJSONValue;  //TFDJSONDataSets;
+var ds:TObjectDataSet;
+    cli:TClientes;
+begin
+   // buscar os dados no banco de dados com codigo passado pelo cliente...
+
+   // resposta para o cliente;
+
+
+   //  meus dados no firedac
+   //  usei um ObjectDataset somento para não precisar criar uma conexão e um query
+   ds:=TObjectDataSet.Create(self,TClientes);
+   try
+      ds.Open;
+      ds.append;
+      with ds do
+      begin
+        FieldByName( 'codigo' ).Value := 1;
+        FieldByName( 'nome').Value:= 'Embarcadero SA';
+        FieldByName( 'Endereco').value := 'Rua...xxxx...,10';
+        FieldByName( 'Cidade').value := 'Sao Paulo';
+        FieldByName( 'Estado').value := 'SP';
+        FieldByName( 'Debitos').value := 100000.12;
+      end;
+      ds.Post;
+
+      result := TJSONObject.ParseJSONValue(  ds.ToJson  );
+   finally
+     ds.Free;
+   end;
+end;
+
+function TServerMethods1.GetCliente2(codigo: int64): TFDJSONDataSets;
+var ds:TObjectDataSet;
+    cli:TClientes;
+begin
+   // buscar os dados no banco de dados com codigo passado pelo cliente...
+
+   // resposta para o cliente;
+   result := TFDJSONDataSets.create;
+   //  meus dados no firedac
+   //  usei um ObjectDataset somento para não precisar criar uma conexão e um query
+   ds:=TObjectDataSet.Create(nil,TClientes);
+   try
+      ds.Open;
+      ds.append;
+      with ds do
+      begin
+        FieldByName( 'codigo' ).Value := 1;
+        FieldByName( 'nome').Value:= 'Embarcadero SA';
+        FieldByName( 'Endereco').value := 'Rua...xxxx...,10';
+        FieldByName( 'Cidade').value := 'Sao Paulo';
+        FieldByName( 'Estado').value := 'SP';
+        FieldByName( 'Debitos').value := 100000.12;
+      end;
+      ds.Post;
+
+      TFDJSONDataSetsWriter.ListAdd(Result, 'CLIENTE', ds);
+   finally
+     //ds.Free;   -- eh destruido pelo Writer
+   end;
+end;
+
+function TServerMethods1.ReverseString(Value: string): string;
+begin
+  Result := System.StrUtils.ReverseString(Value);
+end;
+
+{ TClientes }
+
+procedure TClientes.SetCidade(const Value: string);
+begin
+  FCidade := Value;
+end;
+
+procedure TClientes.SetCodigo(const Value: int64);
+begin
+  FCodigo := Value;
+end;
+
+procedure TClientes.SetDebitos(const Value: double);
+begin
+  FDebitos := Value;
+end;
+
+procedure TClientes.SetEndereco(const Value: string);
+begin
+  FEndereco := Value;
+end;
+
+procedure TClientes.SetEstado(const Value: String);
+begin
+  FEstado := Value;
+end;
+
+procedure TClientes.SetNome(const Value: string);
+begin
+  FNome := Value;
+end;
+
+end.
+
