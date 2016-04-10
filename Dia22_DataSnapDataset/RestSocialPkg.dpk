@@ -28,6 +28,7 @@ package RestSocialPkg;
 {$IMPLICITBUILD ON}
 
 requires
+  DesignIDE,
   rtl,
   xmlrtl,
   dbrtl,
@@ -44,12 +45,11 @@ requires
   IndyIPCommon,
   bindengine,
   bindcomp,
-  FireDAC,
-  DbxCommonDriver,
-  QR5RunDXE6;
+  FireDAC;
 
 contains
   REST.FDSocial in '..\..\Comum\REST.FDSocial.pas',
-  Social.Dropbox in '..\..\Comum\Social.Dropbox.pas';
+  Social.Dropbox in '..\..\Comum\Social.Dropbox.pas',
+  REST.SOCIALReg in '..\..\Comum\REST.SOCIALReg.pas';
 
 end.

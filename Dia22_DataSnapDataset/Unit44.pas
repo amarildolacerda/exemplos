@@ -52,6 +52,7 @@ begin
    // nome e parametros do serviço
    // identificação da resposta
    restCli.RootElement := 'result.cliente';
+   restCli.ParameterByName['cnpj'].Value := '12312312000112';
    restCli.Get();
    memo1.Lines.text := restCli.ResponseText;
    DataSource1.DataSet := restCli.DataSet;
