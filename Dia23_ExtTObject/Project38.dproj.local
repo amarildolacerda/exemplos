@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/04/10 17:31:35.000.804,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit45.pas</Transaction>
+    <Transaction>2016/04/10 17:42:09.000.390,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit46.pas</Transaction>
+    <Transaction>2016/04/10 17:42:32.000.989,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit46.pas=C:\fontes\Comum\System.Classes.Helper.pas</Transaction>
+    <Transaction>2016/04/10 17:56:42.000.026,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit45.pas=C:\fontes\Comum\Unit45.pas</Transaction>
+    <Transaction>2016/04/10 17:56:42.000.026,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit45.dfm=C:\fontes\Comum\Unit45.dfm</Transaction>
+    <Transaction>2016/04/10 17:56:44.000.098,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project38.dproj=C:\fontes\Comum\Project38.dproj</Transaction>
+    <Transaction>2016/04/10 20:01:11.616,C:\fontes\treinamento\Dia23_ExtTObject\Project38.dproj=C:\fontes\Comum\Project38.dproj</Transaction>
+    <Transaction>2016/04/10 20:01:36.683,C:\fontes\treinamento\Dia23_ExtTObject\Unit45.dfm=C:\fontes\Comum\Unit45.dfm</Transaction>
+    <Transaction>2016/04/10 20:01:36.683,C:\fontes\treinamento\Dia23_ExtTObject\Unit45.pas=C:\fontes\Comum\Unit45.pas</Transaction>
+  </Transactions>
+</BorlandProject>

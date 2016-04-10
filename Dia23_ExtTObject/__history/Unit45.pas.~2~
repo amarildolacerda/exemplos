@@ -1,0 +1,62 @@
+﻿unit Unit45;
+
+interface
+
+uses
+  Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
+  System.Classes.Helper,
+  Vcl.StdCtrls;
+
+type
+
+//  [TFireEventAttribute]
+  TObjectNew = class(TObjectExt)
+   public
+  end;
+
+  TForm45 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+    FObject:TObjectNew;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form45: TForm45;
+
+implementation
+
+{$R *.dfm}
+//uses
+//system.uJson;
+
+procedure TForm45.Button1Click(Sender: TObject);
+begin
+    FObject.FireEvent();
+end;
+
+procedure TForm45.Button2Click(Sender: TObject);
+begin
+   FObject.Run<TObject>(
+      procedure (sender:TObject) begin
+          showMessage('Run');
+      end);
+end;
+
+procedure TForm45.FormCreate(Sender: TObject);
+begin
+   FObject := TObjectNew.Create;
+   FObject.OnFireEvent := procedure (sender:TObject)
+                       begin
+                         showmessage('Evento');
+                       end;
+end;
+
+end.
