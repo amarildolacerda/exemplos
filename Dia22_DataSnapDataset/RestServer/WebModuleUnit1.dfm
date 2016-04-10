@@ -17,10 +17,6 @@ object WebModule1: TWebModule1
       Name = 'DefaultAction'
       PathInfo = '/'
       OnAction = WebModuleDefaultAction
-    end
-    item
-      Name = 'WebActionItem1'
-      PathInfo = '/GetNotaFiscal'
     end>
   BeforeDispatch = WebModuleBeforeDispatch
   Height = 333

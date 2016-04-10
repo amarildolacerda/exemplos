@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject>
-	<Transactions>
-    <Transaction>2016/02/19 18:43:16.000.151,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit38.pas</Transaction>
-    <Transaction>2016/02/19 18:49:49.000.519,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit38.dfm=C:\fontes\Dropbox\uDropboxMain.dfm</Transaction>
-    <Transaction>2016/02/19 18:49:49.000.519,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit38.pas=C:\fontes\Dropbox\uDropboxMain.pas</Transaction>
-    <Transaction>2016/02/19 18:49:55.000.963,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project31.dproj=C:\fontes\Dropbox\DropboxApp.dproj</Transaction>
-  </Transactions>
-</BorlandProject>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/04/03 18:45:46.000.746,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit44.pas</Transaction>
+    <Transaction>2016/04/09 11:34:07.000.534,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit44.pas</Transaction>
+    <Transaction>2016/04/09 11:34:13.000.472,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project37.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project37.dproj</Transaction>
+    <Transaction>2016/04/09 11:35:03.000.840,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit44.pas=C:\fontes\treinamento\Dia22_datasnap\Unit44.pas</Transaction>
+    <Transaction>2016/04/09 11:35:03.000.840,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit44.dfm=C:\fontes\treinamento\Dia22_datasnap\Unit44.dfm</Transaction>
+    <Transaction>2016/04/09 11:35:29.000.074,C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project37.dproj=C:\fontes\treinamento\Dia22_datasnap\ClienteApp.dproj</Transaction>
+    <Transaction>2016/04/09 15:41:07.000.804,=C:\fontes\treinamento\Dia22_datasnap\Unit1.pas</Transaction>
+    <Transaction>2016/04/09 15:41:31.000.208,=C:\fontes\treinamento\Dia22_datasnap\ClientClassesUnit1.pas</Transaction>
+    <Transaction>2016/04/09 15:41:36.000.529,=C:\fontes\treinamento\Dia22_datasnap\ClientModuleUnit1.pas</Transaction>
+    <Transaction>2016/04/09 15:49:03.000.723,=C:\fontes\treinamento\Dia22_datasnap\ClientClassesUnit2.pas</Transaction>
+    <Transaction>2016/04/09 15:49:04.000.391,=C:\fontes\treinamento\Dia22_datasnap\ClientModuleUnit2.pas</Transaction>
+    <Transaction>2016/04/09 16:07:38.000.075,C:\fontes\treinamento\Dia22_datasnap\ClientClassesUnit1.pas=</Transaction>
+    <Transaction>2016/04/09 16:07:42.000.380,C:\fontes\treinamento\Dia22_datasnap\ClientClassesUnit2.pas=</Transaction>
+    <Transaction>2016/04/09 16:07:49.000.963,C:\fontes\treinamento\Dia22_datasnap\ClientModuleUnit2.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

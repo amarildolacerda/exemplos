@@ -1,6 +1,6 @@
 ﻿// 
 // Created by the DataSnap proxy generator.
-// 06/04/2016 23:33:19
+// 09/04/2016 22:17:16
 // 
 
 function DSAdmin(connectionInfo)
@@ -666,7 +666,7 @@ function TServerMethods1(connectionInfo)
 
   /*
    * @param codigo [in] - Type on server: Int64
-   * @return result - Type on server: TJSONValue
+   * @return result - Type on server: TJSONObject
    */
   this.GetCliente = function(codigo) {
     var returnObject = this.executor.executeMethod('GetCliente', "GET", [codigo], arguments[1], true, arguments[2], arguments[3]);
@@ -741,10 +741,34 @@ function TServerMethods1(connectionInfo)
   this.GetNotaFiscal_URL = function(ANumero) {
     return this.executor.getMethodURL("GetNotaFiscal", "GET", [ANumero], arguments[1])[0];
   };
+
+  /*
+   * @param EAN [in] - Type on server: string
+   * @param preco_unit [in] - Type on server: Double
+   * @return result - Type on server: string
+   */
+  this.EAN_balanca = function(EAN, preco_unit) {
+    var returnObject = this.executor.executeMethod('EAN_balanca', "GET", [EAN, preco_unit], arguments[2], true, arguments[3], arguments[4]);
+    if (arguments[2] == null) {
+      if (returnObject != null && returnObject.result != null && isArray(returnObject.result)) {
+        var resultArray = returnObject.result;
+        var resultObject = new Object();
+        resultObject.EAN = EAN;
+        resultObject.preco_unit = preco_unit;
+        resultObject.result = resultArray[0];
+        return resultObject;
+      }
+      return returnObject;
+    }
+  };
+
+  this.EAN_balanca_URL = function(EAN, preco_unit) {
+    return this.executor.getMethodURL("EAN_balanca", "GET", [EAN, preco_unit], arguments[2])[0];
+  };
 }
 
 var JSProxyClassList = {
   "DSAdmin": ["GetPlatformName","ClearResources","FindPackages","FindClasses","FindMethods","CreateServerClasses","DropServerClasses","CreateServerMethods","DropServerMethods","GetServerClasses","ListClasses","DescribeClass","ListMethods","DescribeMethod","GetServerMethods","GetServerMethodParameters","GetDatabaseConnectionProperties","GetDSServerName","ConsumeClientChannel","ConsumeClientChannelTimeout","CloseClientChannel","RegisterClientCallbackServer","UnregisterClientCallback","BroadcastToChannel","BroadcastObjectToChannel","NotifyCallback","NotifyObject"],
-  "TServerMethods1": ["EchoString","ReverseString","GetCliente","GetCliente2","GetNotaFiscal"]
+  "TServerMethods1": ["EchoString","ReverseString","GetCliente","GetCliente2","GetNotaFiscal","EAN_balanca"]
 };
 

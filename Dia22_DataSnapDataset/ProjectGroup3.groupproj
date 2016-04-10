@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{41B9707B-447C-4569-A10F-99CB8AE82C80}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RestSocialPkg.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ClienteApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\RestServer.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RestSocialPkg">
+        <MSBuild Projects="RestSocialPkg.dproj"/>
+    </Target>
+    <Target Name="RestSocialPkg:Clean">
+        <MSBuild Projects="RestSocialPkg.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RestSocialPkg:Make">
+        <MSBuild Projects="RestSocialPkg.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ClienteApp">
+        <MSBuild Projects="ClienteApp.dproj"/>
+    </Target>
+    <Target Name="ClienteApp:Clean">
+        <MSBuild Projects="ClienteApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ClienteApp:Make">
+        <MSBuild Projects="ClienteApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RestServer">
+        <MSBuild Projects="C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\RestServer.dproj"/>
+    </Target>
+    <Target Name="RestServer:Clean">
+        <MSBuild Projects="C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\RestServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RestServer:Make">
+        <MSBuild Projects="C:\git\Exemplos\Dia22_DataSnapDataset\RestServer\RestServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RestSocialPkg;ClienteApp;RestServer"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RestSocialPkg:Clean;ClienteApp:Clean;RestServer:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RestSocialPkg:Make;ClienteApp:Make;RestServer:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

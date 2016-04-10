@@ -13,6 +13,9 @@ type
     FDStanStorageJSONLink1: TFDStanStorageJSONLink;
     FDStanStorageBinLink1: TFDStanStorageBinLink;
   private
+    Pre_unit_balanca:double;
+    procedure DOACBrPrecoUnitarioEvento(const Codigo: string;
+      var PrecoUnitario: Double);
     { Private declarations }
   public
     { Public declarations }
@@ -21,11 +24,13 @@ type
     function ReverseString(Value: string): string;
 
     // passa o codigo do cliente e retorna os dados do cliente
-    function GetCliente(codigo: int64): TJSONValue;  // exemplo retornando um JSONObject
-    function GetCliente2(codigo: int64): TFDJSONDataSets;  // usando Reflection
+    function GetCliente(codigo: int64): TJsonObject;
+    // exemplo retornando um JSONObject
+    function GetCliente2(codigo: int64): TFDJSONDataSets; // usando Reflection
 
     // retorna na mesma resposta CLIENTE + ITENS
     function GetNotaFiscal(ANumero: integer): TFDJSONDataSets;
+    function EAN_balanca(EAN: string; preco_unit: Double): string;
 
   end;
 {$METHODINFO OFF}
@@ -34,7 +39,8 @@ implementation
 
 {$R *.dfm}
 
-uses System.StrUtils, FireDAC.ObjectDataSet, Data.db.helper;
+uses System.StrUtils, FireDAC.ObjectDataSet, Data.db.helper,
+  ACBrBase, ACBrInStore;
 
 function TServerMethods1.EchoString(Value: string): string;
 begin
@@ -46,19 +52,18 @@ begin
   Result := System.StrUtils.ReverseString(Value);
 end;
 
-
 type
   TClientes = class
   private
     FCodigo: int64;
     FNome: string;
     FCidade: string;
-    FDebitos: double;
+    FDebitos: Double;
     FEndereco: string;
     FEstado: String;
     procedure SetCidade(const Value: string);
     procedure SetCodigo(const Value: int64);
-    procedure SetDebitos(const Value: double);
+    procedure SetDebitos(const Value: Double);
     procedure SetEndereco(const Value: string);
     procedure SetEstado(const Value: String);
     procedure SetNome(const Value: string);
@@ -68,31 +73,32 @@ type
     property Cidade: string read FCidade write SetCidade;
     property Estado: String read FEstado write SetEstado;
     property Endereco: string read FEndereco write SetEndereco;
-    property Debitos: double read FDebitos write SetDebitos;
+    property Debitos: Double read FDebitos write SetDebitos;
   end;
 
   TNotaFiscalItens = class
   private
-    FPreco: double;
+    FPreco: Double;
     FCodigo: string;
-    FQtde: double;
+    FQtde: Double;
     FNome: string;
     procedure SetCodigo(const Value: string);
     procedure SetNome(const Value: string);
-    procedure SetPreco(const Value: double);
-    procedure SetQtde(const Value: double);
+    procedure SetPreco(const Value: Double);
+    procedure SetQtde(const Value: Double);
   public
     property codigo: string read FCodigo write SetCodigo;
     property Nome: string read FNome write SetNome;
-    property Qtde: double read FQtde write SetQtde;
-    property Preco: double read FPreco write SetPreco;
+    property Qtde: Double read FQtde write SetQtde;
+    property Preco: Double read FPreco write SetPreco;
   end;
 
-function TServerMethods1.GetCliente(codigo: int64): TJSONValue;
+function TServerMethods1.GetCliente(codigo: int64): TJsonObject;
 // TFDJSONDataSets;
 var
   ds: TObjectDataSet;
   cli: TClientes;
+  v : TJSonValue;
 begin
   // buscar os dados no banco de dados com codigo passado pelo cliente...
 
@@ -100,7 +106,8 @@ begin
 
   // meus dados no firedac
   // usei um ObjectDataset somento para não precisar criar uma conexão e um query
-  ds := TObjectDataSet.Create(self, TClientes);  // usa RTTI para mapear coluna do TDataset
+  ds := TObjectDataSet.Create(self, TClientes);
+  // usa RTTI para mapear coluna do TDataset
   try
     ds.Open;
     ds.append;
@@ -114,9 +121,26 @@ begin
       FieldByName('Debitos').Value := 100000.12;
     end;
     ds.Post;
+    ds.append;
+    with ds do
+    begin
+      FieldByName('codigo').Value := 2;
+      FieldByName('nome').Value := 'Embarcadero SA2';
+      FieldByName('Endereco').Value := 'Rua...xxxx...,10';
+      FieldByName('Cidade').Value := 'Sao Paulo';
+      FieldByName('Estado').Value := 'SP';
+      FieldByName('Debitos').Value := 100000.12;
+    end;
+    ds.Post;
 
     // retorna um JsonObject
-    Result := TJSONObject.ParseJSONValue(ds.ToJson);
+    Result := ds.ToJsonObject('cliente');
+
+    v := TJSONObject.ParseJSONValue('[{"codigo":1,"nome":"Exemplo 2"}]');
+    result.addpair('adicional', v);
+
+
+
   finally
     ds.Free;
   end;
@@ -126,7 +150,7 @@ end;
 // retorna um objeto FireDAC JSON  Reflection
 // isto estabelece uma boa integração entre aplicativos que usam FireDAC nos clientes.
 // se o cliente não for FireDAC... talves seja interessante pensar em retornar um
-//   formato mais generico
+// formato mais generico
 
 function TServerMethods1.GetCliente2(codigo: int64): TFDJSONDataSets;
 var
@@ -159,7 +183,6 @@ begin
     // ds.Free;   -- eh destruido pelo Writer
   end;
 end;
-
 
 // retornando mais de uma tabala na mesma consulta
 // retorna  CLIENTE  e ITENS da nota fiscal
@@ -204,7 +227,7 @@ begin
       Qtde := 2;
       Preco := 8.5;
     end;
-    dsItens.ObjectList.Add(itens);  // adiciona o objeto ao ObjectDataSet
+    dsItens.ObjectList.Add(itens); // adiciona o objeto ao ObjectDataSet
 
     with itens do
     begin
@@ -222,7 +245,6 @@ begin
   end;
 end;
 
-
 { TClientes }
 
 procedure TClientes.SetCidade(const Value: string);
@@ -235,7 +257,7 @@ begin
   FCodigo := Value;
 end;
 
-procedure TClientes.SetDebitos(const Value: double);
+procedure TClientes.SetDebitos(const Value: Double);
 begin
   FDebitos := Value;
 end;
@@ -267,14 +289,69 @@ begin
   FNome := Value;
 end;
 
-procedure TNotaFiscalItens.SetPreco(const Value: double);
+procedure TNotaFiscalItens.SetPreco(const Value: Double);
 begin
   FPreco := Value;
 end;
 
-procedure TNotaFiscalItens.SetQtde(const Value: double);
+procedure TNotaFiscalItens.SetQtde(const Value: Double);
 begin
   FQtde := Value;
+end;
+
+
+
+Procedure TServerMethods1.DOACBrPrecoUnitarioEvento(const Codigo: string;
+                                 var PrecoUnitario: Double) ;
+begin
+   // retornar o preco de venda;
+   PrecoUnitario := Pre_unit_balanca;
+end;
+
+function TServerMethods1.EAN_balanca(EAN: string; preco_unit: Double): string;
+var
+  edtPrefixo, edtCodigo, edtPeso, edtDV: String;
+  edtTotal: Double;
+  ACBrInStore1: TACBrInStore;
+begin
+  Pre_unit_balanca := preco_unit;
+  ACBrInStore1 := TACBrInStore.Create(nil);
+  try
+    ACBrInStore1.OnGetPrecoUnitario :=DOACBrPrecoUnitarioEvento;
+    ACBrInStore1.Codificacao := '2CCCC0TTTTTTDV';
+    if Length(EAN) = 13 then
+    begin
+      if ACBrInStore1.Prefixo = Copy(EAN, 1, Length(ACBrInStore1.Prefixo)) then
+      begin
+        ACBrInStore1.Desmembrar(EAN);
+
+        edtPrefixo := ACBrInStore1.Prefixo;
+        edtCodigo := ACBrInStore1.codigo;
+        edtTotal := ACBrInStore1.Total;
+        edtDV := ACBrInStore1.DV;
+        //edtPeso := FormatFloat('0.000', ACBrInStore1.Total / preco_unit);
+        edtPeso := formatFloat('0.000',ACBrInStore1.peso);
+      end;
+    end;
+{    Result := Result + ' ' + edtCodigo + ' ' + edtPeso + ' ' +
+      FloatToJson(edtTotal);
+}
+    with TJSONObject.create do
+    try
+       AddPair('codigo',edtCodigo);
+       AddPair('peso',TJSONNumber.Create(ACBrInStore1.Peso));
+       AddPair('preco',TJSONNumber.Create(preco_unit));
+       AddPair('total', TJSONNumber.Create(ACBrInStore1.Total) );
+       result := ToString;
+    finally
+      free;
+    end;
+
+
+
+  finally
+    ACBrInStore1.Free;
+  end;
 end;
 
 end.

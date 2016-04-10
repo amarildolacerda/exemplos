@@ -1,0 +1,43 @@
+unit ClienteRestServer;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, IPPeerClient, Data.DB,
+  Datasnap.DBClient, Datasnap.Win.MConnect, Datasnap.Win.SConnect,
+  Data.Bind.Components, Data.Bind.ObjectScope, REST.Client;
+
+type
+  TForm44 = class(TForm)
+    RESTClient1: TRESTClient;
+    WebConnection1: TWebConnection;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form44: TForm44;
+
+implementation
+
+{$R *.dfm}
+uses REST.FDSocial;
+
+procedure TForm44.FormCreate(Sender: TObject);
+var restCli:TRESTSocialClientDataset;
+begin
+
+   restCli := TRESTSocialClientDataset.Create(nil);
+   restCli.BaseURL := 'http://localhost:8080';
+   restCli.Resource := '/GetCliente';
+   restCli.Get()
+
+
+
+end;
+
+end.
