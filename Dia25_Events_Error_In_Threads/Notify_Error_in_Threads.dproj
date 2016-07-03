@@ -3,7 +3,7 @@
         <ProjectGuid>{8AE0FE70-3DAE-4DDE-A255-41F2144F0951}</ProjectGuid>
         <ProjectVersion>18.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
-        <MainSource>AppProgrParallel.dpr</MainSource>
+        <MainSource>Notify_Error_in_Threads.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -46,7 +46,7 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <SanitizedProjectName>AppProgrParallel</SanitizedProjectName>
+        <SanitizedProjectName>Notify_Error_in_Threads</SanitizedProjectName>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
@@ -95,16 +95,12 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Unit8.pas">
-            <Form>Form8</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="C:\fontes\Comum\System.LogEvents.pas"/>
         <DCCReference Include="C:\fontes\Comum\System.LogEvents.Progress.pas">
             <Form>ProgressEvents</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Unit1.pas">
+        <DCCReference Include="..\Dia24_ProgressParallel\Unit1.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -126,13 +122,13 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">AppProgrParallel.dpr</Source>
+                    <Source Name="MainSource">Notify_Error_in_Threads.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\AppProgrParallel.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\Notify_Error_in_Threads.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>AppProgrParallel.exe</RemoteName>
+                        <RemoteName>Notify_Error_in_Threads.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

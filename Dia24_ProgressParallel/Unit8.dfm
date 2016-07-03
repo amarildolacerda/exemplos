@@ -2,8 +2,8 @@ object Form8: TForm8
   Left = 0
   Top = 0
   Caption = 'Form8'
-  ClientHeight = 103
-  ClientWidth = 244
+  ClientHeight = 54
+  ClientWidth = 241
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,11 +21,11 @@ object Form8: TForm8
     Caption = 'Max. Threads:'
   end
   object Button1: TButton
-    Left = 153
+    Left = 139
     Top = 8
     Width = 75
     Height = 25
-    Caption = 'Progress'
+    Caption = 'Progresso'
     TabOrder = 0
     OnClick = Button1Click
   end

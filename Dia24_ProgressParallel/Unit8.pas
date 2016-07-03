@@ -37,7 +37,7 @@ begin
   LProgr := TProgressEvents.new;
   LProgr.max := 100;  // opcional: marca o número máximo itens
   LProgr.MaxThreads := SpinEdit1.Value ;  // indica o número máximo de threads em paralelo
-  LProgr.CanCancel := true;    :// marca se pode cancelar a operação
+  LProgr.CanCancel := true;    // marca se pode cancelar a operação
 
   for i := 1 to 100 do
   begin   // loop de demonstração - simulando uma lista de processos
