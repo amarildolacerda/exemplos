@@ -28,7 +28,6 @@ object WebModule1: TWebModule1
   object DSHTTPWebDispatcher1: TDSHTTPWebDispatcher
     Server = DSServer1
     Filters = <>
-    OnFormatResult = DSHTTPWebDispatcher1FormatResult
     WebDispatch.PathInfo = 'datasnap*'
     Left = 96
     Top = 75

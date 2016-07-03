@@ -9,7 +9,7 @@ uses
   DataSnap.DSAuth,
   Datasnap.DSProxyJavaScript, IPPeerServer, Datasnap.DSMetadata,
   Datasnap.DSServerMetadata, Datasnap.DSClientMetadata, Datasnap.DSCommonServer,
-  Datasnap.DSHTTP, System.JSON, Data.DBXCommon;
+  Datasnap.DSHTTP;
 
 type
   TWebModule1 = class(TWebModule)
@@ -33,9 +33,6 @@ type
       const AFileName: string; Request: TWebRequest; Response: TWebResponse;
       var Handled: Boolean);
     procedure WebModuleCreate(Sender: TObject);
-    procedure DSHTTPWebDispatcher1FormatResult(Sender: TObject;
-      var ResultVal: TJSONValue; const Command: TDBXCommand;
-      var Handled: Boolean);
   private
     { Private declarations }
     FServerFunctionInvokerAction: TWebActionItem;
@@ -53,24 +50,6 @@ implementation
 {$R *.dfm}
 
 uses ServerMethodsUnit1, Web.WebReq;
-
-procedure TWebModule1.DSHTTPWebDispatcher1FormatResult(Sender: TObject;
-  var ResultVal: TJSONValue; const Command: TDBXCommand; var Handled: Boolean);
-var
-  Aux: TJSONValue;
-begin // https://mathewdelong.wordpress.com/2011/09/15/delphilive-2011-recap/
-  Handled := true;
-  Aux := ResultVal;
-  ResultVal := TJSONArray(Aux).Get(0);
-  try
-    TJSONArray(Aux).Remove(0);
-    // remove the item so it isn't disposed when array is freed
-  finally
-    Aux.Free;
-  end;
-end;
-
-end;
 
 procedure TWebModule1.DSServerClass1GetClass(
   DSServerClass: TDSServerClass; var PersistentClass: TPersistentClass);
