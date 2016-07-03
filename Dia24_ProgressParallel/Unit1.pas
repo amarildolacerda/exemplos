@@ -61,7 +61,7 @@ begin
           LogEvents.Log('Erro exemplo ' + intToStr(n))
           // use como padrão mensagem IDENTIFICADO = 0
         else
-          LogEvents.DoErro(nil, 1, 'LOG.....' + intToStr(n));
+          LogEvents.DoMsg(nil, 1, 'LOG.....' + intToStr(n));
         // separar as mensagens de sucesso   (IDENTIFICADO=1)
       end).start;
 end;
@@ -86,7 +86,9 @@ begin
     FRegistrou := true;
   end;
 
-  LogEvents.Run(procedure begin
+  // usado metodo ANONIMOS para tratar exception internamente
+  LogEvents.Run(
+  procedure begin
        // força um exception
        raise Exception.Create('Error Message');
   end);
