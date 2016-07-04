@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016/07/03 21:06:35.972,=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit8.pas</Transaction>
+    <Transaction>2016/07/03 21:07:31.136,C:\git\Exemplos\Dia26_INI_to_Json_to_INI\Unit8.dfm=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit8.dfm</Transaction>
+    <Transaction>2016/07/03 21:07:31.136,C:\git\Exemplos\Dia26_INI_to_Json_to_INI\Unit8.pas=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Unit8.pas</Transaction>
+    <Transaction>2016/07/03 21:07:41.276,C:\git\Exemplos\Dia26_INI_to_Json_to_INI\Ini2json.dproj=C:\Users\amarildo_2\Documents\Embarcadero\Studio\Projects\Project5.dproj</Transaction>
+    <Transaction>2016/07/03 21:11:54.478,=C:\git\Exemplos\Dia26_INI_to_Json_to_INI\Unit1.pas</Transaction>
+    <Transaction>2016/07/03 21:12:18.045,C:\fontes\Comum\System.IniFiles.Helper.pas=C:\git\Exemplos\Dia26_INI_to_Json_to_INI\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
