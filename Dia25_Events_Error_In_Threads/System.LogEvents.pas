@@ -32,7 +32,7 @@ Uses {$IFDEF FMX} FMX.Forms, {$ELSE} VCL.Forms, {$ENDIF} System.Classes,
   System.SyncObjs;
 
 type
-  TLogEventType = (etCreating, etWaiting, etStarting, etWorking, etFinished,
+  TLogEventType = (etCreating, etWaiting, etStarting, etWorking,etEnding, etFinished,
     etAllFinished);
 
   TLogListEvent = procedure(sender: TObject; msg: string) of object;

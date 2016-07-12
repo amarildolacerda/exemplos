@@ -1,42 +1,43 @@
-{***************************************************************************}
-{                                                                           }
-{                                                                           }
-{           Copyright (C) Amarildo Lacerda                                  }
-{                                                                           }
-{           https://github.com/amarildolacerda                              }
-{                                                                           }
-{                                                                           }
-{***************************************************************************}
-{                                                                           }
-{  Licensed under the Apache License, Version 2.0 (the "License");          }
-{  you may not use this file except in compliance with the License.         }
-{  You may obtain a copy of the License at                                  }
-{                                                                           }
-{      http://www.apache.org/licenses/LICENSE-2.0                           }
-{                                                                           }
-{  Unless required by applicable law or agreed to in writing, software      }
-{  distributed under the License is distributed on an "AS IS" BASIS,        }
-{  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. }
-{  See the License for the specific language governing permissions and      }
-{  limitations under the License.                                           }
-{                                                                           }
-{***************************************************************************}
+{ *************************************************************************** }
+{ }
+{ }
+{ Copyright (C) Amarildo Lacerda }
+{ }
+{ https://github.com/amarildolacerda }
+{ }
+{ }
+{ *************************************************************************** }
+{ }
+{ Licensed under the Apache License, Version 2.0 (the "License"); }
+{ you may not use this file except in compliance with the License. }
+{ You may obtain a copy of the License at }
+{ }
+{ http://www.apache.org/licenses/LICENSE-2.0 }
+{ }
+{ Unless required by applicable law or agreed to in writing, software }
+{ distributed under the License is distributed on an "AS IS" BASIS, }
+{ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. }
+{ See the License for the specific language governing permissions and }
+{ limitations under the License. }
+{ }
+{ *************************************************************************** }
 
-
+{ 12/07/2016 * trocado TTask por TTHread para compatibilidade com versões anteriores do XE - Amarildo Lacerda
+
+
 unit System.LogEvents.Progress;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,System.SyncObjs,
+  System.Classes, Vcl.Graphics, System.SyncObjs,
   System.Generics.Collections,
   System.LogEvents,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.ValEdit, Vcl.ExtCtrls,
   Vcl.Buttons, Vcl.StdCtrls, Vcl.ComCtrls;
 
 type
-
 
   IProgressEvents = interface
     ['{291F6DA5-5606-412B-9CD6-76A4E25A9C95}']
@@ -60,10 +61,9 @@ type
       overload;
     procedure Add(AValue: string; AMsg: string; proc: TProc<string>); overload;
     property Text: string read GetText write SetText;
-    property CanCancel:Boolean read GetCanCancel write SetCanCancel;
-    function Terminated: boolean;
+    property CanCancel: Boolean read GetCanCancel write SetCanCancel;
+    function Terminated: Boolean;
   end;
-
 
   TProgressEvents = class(TForm, IProgressEvents)
     Panel1: TPanel;
@@ -75,11 +75,11 @@ type
     procedure FormCreate(sender: TObject);
     procedure FormDestroy(sender: TObject);
     procedure SpeedButton1Click(sender: TObject);
-    procedure FormCloseQuery(sender: TObject; var CanClose: boolean);
-    procedure lblErroClick(Sender: TObject);
+    procedure FormCloseQuery(sender: TObject; var CanClose: Boolean);
+    procedure lblErroClick(sender: TObject);
   private
-    FTerminated: boolean;
-    FInited: boolean;
+    FTerminated: Boolean;
+    FInited: Boolean;
     FSLock: TCriticalSection;
     FLocal: Integer;
     FMax: Integer;
@@ -117,16 +117,16 @@ type
     procedure Add(AValue, AMsg: string; proc: TProc<string>); overload;
     procedure WaitFor(const ASleep: Integer = 100);
     function Count: Integer;
-    function Terminated: boolean;
+    function Terminated: Boolean;
     property Text: string read GetText write SetText;
-    property CanCancel:Boolean read GetCanCancel write SetCanCancel;
+    property CanCancel: Boolean read GetCanCancel write SetCanCancel;
   end;
 
 implementation
 
 {$R *.dfm}
 
-uses System.Threading;
+//uses System.Threading;
 
 procedure TProgressEvents.Add(AIndex: Integer; AMsg: string;
   proc: TProc<Integer>);
@@ -138,7 +138,7 @@ begin
     DoProgressEvent(self, etCreating, AMsg, 0);
     InterlockedIncrement(FLocal);
     if FMaxThreads <= 0 then
-    begin    // nao usa Thread...
+    begin // nao usa Thread...
       DoProgressEvent(self, etStarting, AMsg, 0);
       proc(AIndex);
       DoProgressEvent(self, etFinished, AMsg, 0);
@@ -146,7 +146,7 @@ begin
     else
     begin
       DoProgressEvent(self, etWaiting, AMsg, 0);
-      TTask.create(
+      TThread.CreateAnonymousThread(
         procedure
         begin
           DoProgressEvent(self, etStarting, AMsg, 0);
@@ -176,7 +176,7 @@ begin
       DoProgressEvent(self, etFinished, AMsg, 0);
     end
     else
-      TTask.create(
+      TThread.CreateAnonymousThread(
         procedure
         begin
           proc(AValue);
@@ -204,7 +204,7 @@ begin
       DoProgressEvent(self, etFinished, AMsg, 0);
     end
     else
-      TTask.create(
+      TThread.CreateAnonymousThread(
         procedure
         begin
           proc(sender);
@@ -270,6 +270,8 @@ begin
               ValueListEditor1.Strings.Values[msg] := 'na fila';
             etStarting:
               ValueListEditor1.Strings.Values[msg] := 'Iniciado..';
+            etEnding:
+              ValueListEditor1.Strings.Values[msg] := 'finalizando';
             etWorking:
               begin
                 ValueListEditor1.Strings.Values[msg] := 'Em andamento';
@@ -283,7 +285,7 @@ begin
         end
         else
         begin
-          ValueListEditor1.Strings.AddPair(msg, '...');
+          ValueListEditor1.Strings.Add(msg+'=...');
           ValueListEditor1.Perform(WM_VSCROLL, SB_BOTTOM, 0);
           UpdatePosition;
         end;
@@ -298,8 +300,8 @@ begin
 
   if FCanCancel then
   begin
-     SpeedButton1.Caption := 'Cancelar';
-     SpeedButton1.Enabled := true;
+    SpeedButton1.caption := 'Cancelar';
+    SpeedButton1.Enabled := true;
   end;
 
   show;
@@ -307,7 +309,7 @@ begin
 end;
 
 procedure TProgressEvents.FormCloseQuery(sender: TObject;
-var CanClose: boolean);
+var CanClose: Boolean);
 begin
   FTerminated := true;
 end;
@@ -334,7 +336,7 @@ end;
 
 function TProgressEvents.GetCanCancel: Boolean;
 begin
-   result := FCanCancel ;
+  result := FCanCancel;
 end;
 
 function TProgressEvents.GetMax: Integer;
@@ -363,9 +365,9 @@ begin
   UpdatePosition;
 end;
 
-procedure TProgressEvents.lblErroClick(Sender: TObject);
+procedure TProgressEvents.lblErroClick(sender: TObject);
 begin
-    showMessage(lblErro.Caption);
+  showMessage(lblErro.caption);
 end;
 
 procedure TProgressEvents.lock;
@@ -414,13 +416,12 @@ begin
   close;
 end;
 
-function TProgressEvents.Terminated: boolean;
+function TProgressEvents.Terminated: Boolean;
 begin
   lock;
   try
     result := FTerminated;
-    if result then
-       ; // como parar a TASK
+    if result then; // como parar a TASK
   finally
     Unlock;
   end;
@@ -467,6 +468,5 @@ begin
       break;
   end;
 end;
-
 
 end.
