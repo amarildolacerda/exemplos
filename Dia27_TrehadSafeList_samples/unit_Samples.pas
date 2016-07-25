@@ -13,6 +13,7 @@ type
   TForm2 = class(TForm)
     Button1: TButton;
     Memo1: TMemo;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -33,10 +34,11 @@ implementation
 procedure TForm2.Button1Click(Sender: TObject);
 var
   x: integer;
+  t1, t2: TThread;
 begin
   strList.Clear;
   // Thread 1
-  tthread.CreateAnonymousThread(
+  t1 := TThread.CreateAnonymousThread(
     procedure
     var
       x: integer;
@@ -44,20 +46,15 @@ begin
       for x := 0 to random(1000) do
       begin
         strList.Add('X' + intToStr(x));
-        tthread.Sleep(random(10));
+        TThread.Sleep(random(10));
       end;
       strList.Add('X-FIM');
 
-      tthread.Queue(nil,
-        procedure
-        begin
-          strList.AssingTo(Memo1.lines);
-        end);
-
-    end).start;
+    end);
+  t1.start;
 
   // Thread 2
-  tthread.CreateAnonymousThread(
+  t2 := TThread.CreateAnonymousThread(
     procedure
     var
       x: integer;
@@ -65,17 +62,19 @@ begin
       for x := 0 to random(1000) do
       begin
         strList.Add('Z' + intToStr(x));
-        tthread.Sleep(random(10));
+        TThread.Sleep(random(10));
       end;
       strList.Add('Z-FIM');
-
-      tthread.Queue(nil,
+      TThread.Queue(nil,
         procedure
         begin
           strList.AssingTo(Memo1.lines);
         end);
 
-    end).start;
+    end);
+  t2.start;
+
+
 
 end;
 

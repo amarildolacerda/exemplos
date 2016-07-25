@@ -302,7 +302,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Dia27_ThreadSafeLists.pas">
+        <DCCReference Include="unit_Samples.pas">
             <Form>Form2</Form>
             <FormType>fmx</FormType>
         </DCCReference>

@@ -7,9 +7,11 @@
     <Transaction>2016/07/18 12:37:50.000.636,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2016/07/18 12:47:49.000.144,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2016/07/24 21:26:26.856,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2016/07/24 21:47:09.230,C:\Git\exemplos\Dia27_ThreadSafeLists.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2016/07/24 21:47:09.230,C:\Git\exemplos\Dia27_ThreadSafeLists.fmx=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit2.fmx</Transaction>
+    <Transaction>2016/07/24 21:47:09.230,C:\Git\exemplos\Dia27_ThreadSafeLists.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
     <Transaction>2016/07/24 21:47:48.079,C:\Git\exemplos\Dia27_TrehadSafeList_samples\Project1.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2016/07/24 21:48:12.597,C:\Git\exemplos\Dia27_TrehadSafeList_samples\unit_Samples.fmx=C:\Git\exemplos\Dia27_ThreadSafeLists.fmx</Transaction>
+    <Transaction>2016/07/24 21:48:12.597,C:\Git\exemplos\Dia27_TrehadSafeList_samples\unit_Samples.pas=C:\Git\exemplos\Dia27_ThreadSafeLists.pas</Transaction>
   </Transactions>  <ActiveMobileDevice>   <NoProfile iOSSimulator="iPhone5" Android="x86"/>
   </ActiveMobileDevice>
 </BorlandProject>

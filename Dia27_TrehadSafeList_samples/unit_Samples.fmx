@@ -17,7 +17,7 @@ object Form2: TForm2
     Size.Height = 22.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    Text = 'Com StringList '
+    Text = 'com StringList '
     OnClick = Button1Click
   end
   object Memo1: TMemo
@@ -31,5 +31,14 @@ object Form2: TForm2
     TabOrder = 1
     Viewport.Width = 293.000000000000000000
     Viewport.Height = 365.000000000000000000
+  end
+  object Button2: TButton
+    Position.X = 32.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 177.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Text = 'com ObjectList'
   end
 end
