@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/08/06 19:26:05.000.441,=C:\Git\samples\Dia29_UDPServer\FormUnit1.pas</Transaction>
+    <Transaction>2016/08/06 19:26:05.000.641,=C:\Git\samples\Dia29_UDPServer\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2016/08/06 19:26:13.000.198,=C:\Git\samples\Dia29_UDPServer\WebModuleUnit1.pas</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.701,=C:\Git\samples\Dia29_UDPServer\js\serverfunctionexecutor.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.771,=C:\Git\samples\Dia29_UDPServer\js\callbackframework.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.802,=C:\Git\samples\Dia29_UDPServer\js\base64-min.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.968,=C:\Git\samples\Dia29_UDPServer\js\serverfunctioninvoker.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.871,=C:\Git\samples\Dia29_UDPServer\js\serverfunctionexecutor-min.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.649,=C:\Git\samples\Dia29_UDPServer\js\base64.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.833,=C:\Git\samples\Dia29_UDPServer\js\json2-min.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.887,=C:\Git\samples\Dia29_UDPServer\js\callbackframework-min.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.918,=C:\Git\samples\Dia29_UDPServer\js\connection.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.786,=C:\Git\samples\Dia29_UDPServer\js\serverfunctions.js</Transaction>
+    <Transaction>2016/08/06 19:26:15.000.748,=C:\Git\samples\Dia29_UDPServer\js\json2.js</Transaction>
+    <Transaction>2016/08/06 19:26:16.000.002,=C:\Git\samples\Dia29_UDPServer\css\main.css</Transaction>
+    <Transaction>2016/08/06 19:26:16.000.049,=C:\Git\samples\Dia29_UDPServer\css\serverfunctioninvoker.css</Transaction>
+    <Transaction>2016/08/06 19:26:16.000.172,=C:\Git\samples\Dia29_UDPServer\templates\serverfunctioninvoker.html</Transaction>
+    <Transaction>2016/08/06 19:26:16.000.087,=C:\Git\samples\Dia29_UDPServer\templates\reversestring.html</Transaction>
+    <Transaction>2016/08/06 19:26:16.000.272,=C:\Git\samples\Dia29_UDPServer\images\expand.png</Transaction>
+    <Transaction>2016/08/06 19:26:16.000.234,=C:\Git\samples\Dia29_UDPServer\images\collapse.png</Transaction>
+    <Transaction>2016/08/06 19:27:24.000.121,C:\Git\samples\Dia29_UDPServer\Dia29_UDPServer.dproj=C:\Git\samples\Dia29_UDPServer\DatasnapRest.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

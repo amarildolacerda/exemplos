@@ -19,6 +19,8 @@ type
     Button5: TButton;
     Button6: TButton;
     ListBox3: TListBox;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure ListBox1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -44,6 +46,9 @@ procedure TForm3.Button1Click(Sender: TObject);
 begin
    Button1.GetPropertiesList( ListBox1.Items, [mvPublished] );   // pega uma lista de properiedades do Button1
    edit2.Text := Button1.Properties['Caption'].AsString;   // pega o valor da propriedade caption
+
+   Label1.Caption := intToStr( button1.PropertyCount  );
+
 end;
 
 procedure TForm3.Button2Click(Sender: TObject);
@@ -54,6 +59,9 @@ end;
 procedure TForm3.Button3Click(Sender: TObject);
 begin
   button1.GetFieldsList( ListBox2.Items, [mvPrivate,mvPublic]  );
+
+  label2.Caption := IntToStr(  Button1.FieldsCount   );
+
 end;
 
 procedure TForm3.Button4Click(Sender: TObject);

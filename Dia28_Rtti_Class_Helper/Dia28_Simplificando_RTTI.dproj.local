@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2016/08/02 22:36:11.760,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
-    <Transaction>2016/08/03 00:04:47.086,C:\Git\samples\Dia28_Simplificando_RTTI.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
-    <Transaction>2016/08/03 00:05:59.274,C:\Git\samples\Dia28_Rtti_Class_Helper\Dia28_Simplificando_RTTI.dproj=C:\Git\samples\Dia28_Simplificando_RTTI.dproj</Transaction>
-    <Transaction>2016/08/03 00:06:26.565,C:\Git\samples\Dia28_Rtti_Class_Helper\Unit3.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit3.dfm</Transaction>
-    <Transaction>2016/08/03 00:06:26.565,C:\Git\samples\Dia28_Rtti_Class_Helper\Unit3.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+	<Transactions>
+    <Transaction>2016/08/02 22:36:11.000.760,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2016/08/03 00:04:47.000.086,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project2.dproj=C:\Git\samples\Dia28_Simplificando_RTTI.dproj</Transaction>
+    <Transaction>2016/08/03 00:05:59.000.274,C:\Git\samples\Dia28_Simplificando_RTTI.dproj=C:\Git\samples\Dia28_Rtti_Class_Helper\Dia28_Simplificando_RTTI.dproj</Transaction>
+    <Transaction>2016/08/03 00:06:26.000.565,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit3.dfm=C:\Git\samples\Dia28_Rtti_Class_Helper\Unit3.dfm</Transaction>
+    <Transaction>2016/08/03 00:06:26.000.565,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit3.pas=C:\Git\samples\Dia28_Rtti_Class_Helper\Unit3.pas</Transaction>
   </Transactions>
 </BorlandProject>

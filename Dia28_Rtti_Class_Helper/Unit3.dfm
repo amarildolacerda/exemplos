@@ -13,6 +13,20 @@ object Form3: TForm3
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 240
+    Top = 46
+    Width = 31
+    Height = 13
+    Caption = 'Label1'
+  end
+  object Label2: TLabel
+    Left = 240
+    Top = 312
+    Width = 31
+    Height = 13
+    Caption = 'Label2'
+  end
   object Button1: TButton
     Left = 43
     Top = 40
@@ -59,7 +73,7 @@ object Form3: TForm3
   end
   object Button3: TButton
     Left = 43
-    Top = 288
+    Top = 309
     Width = 174
     Height = 25
     Caption = 'RTTI Fields'
@@ -68,7 +82,7 @@ object Form3: TForm3
   end
   object ListBox2: TListBox
     Left = 43
-    Top = 319
+    Top = 340
     Width = 302
     Height = 234
     ItemHeight = 13
@@ -95,7 +109,7 @@ object Form3: TForm3
   end
   object Button6: TButton
     Left = 368
-    Top = 376
+    Top = 397
     Width = 129
     Height = 25
     Caption = 'RTTI Methods'
@@ -104,7 +118,7 @@ object Form3: TForm3
   end
   object ListBox3: TListBox
     Left = 368
-    Top = 407
+    Top = 428
     Width = 337
     Height = 146
     ItemHeight = 13

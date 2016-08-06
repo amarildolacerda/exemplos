@@ -26,17 +26,27 @@ unit System.ThreadSafe;
 
 interface
 
-uses Classes, System.Generics.Collections;
+uses Classes, System.SysUtils, System.Generics.Collections;
 
 type
 
-  TObjectLock = class(TObject)
+  IObjectLock = Interface
+    ['{0BE26A3B-FA06-430E-BC68-7E6AF79A539F}']
+    procedure BeginWrite;
+    procedure EndWrite;
+    procedure BeginRead;
+    procedure EndRead;
+  End;
+
+  TObjectLock = class(TInterfacedObject,IObjectLock)
   private
     FLock: TObject;
   protected
-    procedure Lock; virtual;
-    procedure UnLock; virtual;
   public
+    procedure BeginWrite; virtual;
+    procedure EndWrite; virtual;
+    procedure BeginRead;virtual;
+    procedure EndRead;virtual;
     constructor create; virtual;
     destructor destroy; override;
   end;
@@ -44,7 +54,50 @@ type
   TThreadSafeList = TThreadList;
   /// Rename only
 
-  TThreadSafeStringList = class(TObjectLock)
+  IThreadSafeList = interface
+    ['{D90AC099-BAE9-487B-92A6-EC2DD7D651AE}']
+    procedure Clear;
+    function Count: integer;
+    procedure Delete(AIndex: integer);
+    procedure Remove(AText: string);
+  end;
+
+  IThreadSafeStringList = interface(IThreadSafeList)
+    ['{AE5CC12E-48CC-4C52-8808-CB2EDB262ABF}']
+    function Getitems(AIndex: integer): string;
+    procedure Setitems(AIndex: integer; const AValue: string);
+    function GetDelimitedText: string;
+    function GetDelimiter: Char;
+    procedure SetDelimitedText(const AValue: string);
+    procedure SetDelimiter(const AValue: Char);
+    function GetCommaText: string;
+    procedure SetCommaText(const AValue: string);
+    function GetQuoteChar: Char;
+    procedure SetQuoteChar(const AValue: Char);
+    function GetValues(AName: string): String;
+    procedure SetValues(AName: string; const Value: String);
+    function GetNames(AIndex: integer): String;
+    procedure SetNames(AIndex: integer; const Value: String);
+    function IndexOf(AText: string): integer;
+    function IndexOfName(AText: string): integer;
+    procedure Add(AText: string; ADupl: boolean = true);
+    function LockList: TStringList;
+    procedure UnlockList;
+    property Items[AIndex: integer]: string read Getitems write Setitems;
+    property Delimiter: Char read GetDelimiter write SetDelimiter;
+    property DelimitedText: string read GetDelimitedText write SetDelimitedText;
+    function Text: string;
+    property CommaText: string read GetCommaText write SetCommaText;
+    property QuoteChar: Char read GetQuoteChar write SetQuoteChar;
+    procedure Assing(AStrings: TStrings);
+    procedure AssingTo(AStrings: TStrings);
+    procedure AddTo(AStrings: TStrings);
+    property Values[AName: string]: String read GetValues write SetValues;
+    property Names[AIndex: integer]: String read GetNames write SetNames;
+  end;
+
+
+  TThreadSafeStringList = class(TObjectLock,IThreadSafeStringList)
   private
     FList: TStringList;
     function Getitems(AIndex: integer): string;
@@ -62,6 +115,7 @@ type
     function GetNames(AIndex: integer): String;
     procedure SetNames(AIndex: integer; const Value: String);
   public
+    class function New:IThreadSafeStringList;static;
     constructor create; override;
     destructor destroy; override;
     procedure Clear;
@@ -73,6 +127,7 @@ type
     procedure Remove(AText: string);
     function LockList: TStringList;
     procedure UnlockList; inline;
+    function BeginRead:TStringList;overload;
     property Items[AIndex: integer]: string read Getitems write Setitems;
     property Delimiter: Char read GetDelimiter write SetDelimiter;
     property DelimitedText: string read GetDelimitedText write SetDelimitedText;
@@ -86,19 +141,14 @@ type
     property Names[AIndex: integer]: String read GetNames write SetNames;
   end;
 
-  TThreadSafeObjectList<T: Class> = class(TObjectLock)
-  private
-    FList: TObjectList<T>;
+
+  IThreadSafeObjectList<T: Class> = interface
+    ['{8AD3EB1C-E121-456B-8734-0E69E8CDED7C}']
     function Getitems(AIndex: integer): T;
     procedure Setitems(AIndex: integer; const AValue: T);
-  protected
-    FItemClass: TClass;
-  public
-    constructor create; overload; override;
-    constructor create(AClass: TClass); overload; virtual;
-    destructor destroy; override;
     function LockList: TObjectList<T>;
     procedure UnlockList;
+    function BeginRead:TObjectList<T>; overload;
     procedure Clear;
     function Add(AValue: T): integer; overload;
     function Count: integer;
@@ -109,7 +159,49 @@ type
     function Add: T; overload;
   end;
 
-  TThreadSafeInterfaceList<T: IInterface> = class(TObjectLock)
+  TThreadSafeObjectList<T: Class> = class(TObjectLock,IThreadSafeObjectList<T>)
+  private
+    FList: TObjectList<T>;
+    function Getitems(AIndex: integer): T;
+    procedure Setitems(AIndex: integer; const AValue: T);
+  protected
+    FItemClass: TClass;
+  public
+    constructor create; overload; override;
+    constructor create(AClass: TClass); overload; virtual;
+    destructor destroy; override;
+    class function New:IThreadSafeObjectList<T>;static;
+    function LockList: TObjectList<T>;
+    procedure UnlockList;
+    function BeginRead:TObjectList<T>; overload;
+    procedure Clear;
+    function Add(AValue: T): integer; overload;
+    function Count: integer;
+    property Items[AIndex: integer]: T read Getitems write Setitems;
+    function IndexOf(AValue: T): integer;
+    procedure Delete(AIndex: integer);
+    procedure Remove(AValue: T);
+    function Add: T; overload;
+  end;
+
+  IThreadSafeInterfaceList<T: IInterface> = Interface
+    ['{9E337DFF-85AB-409B-9C16-C632A9A6BF91}']
+    function Getitems(AIndex: integer): T;
+    procedure Setitems(AIndex: integer; const AValue: T);
+    procedure Insert(AIndex: integer; AValue: T);
+    function Add(AValue: T): integer;
+    function IndexOf(AValue: T): integer;
+    procedure Delete(AIndex: integer);
+    procedure Remove(AValue: T);
+    function Count: integer;
+    procedure Clear;
+    function LockList: TList<T>;
+    function BeginRead:TList<T>;overload;
+    procedure UnlockList;
+    property Items[AIndex: integer]: T read Getitems write Setitems;
+  End;
+
+  TThreadSafeInterfaceList<T: IInterface> = class(TObjectLock, IThreadSafeInterfaceList<T>)
   private
     FOwned: boolean;
     FList: TList<T>;
@@ -122,9 +214,11 @@ type
     procedure Delete(AIndex: integer);
     procedure Remove(AValue: T);
     constructor create(AOwned: boolean = true); virtual;
+    class function New:IThreadSafeInterfaceList<T>;static;
     function Count: integer;
     procedure Clear;
     function LockList: TList<T>;
+    function BeginRead:TList<T>;overload;
     procedure UnlockList;
     property Items[AIndex: integer]: T read Getitems write Setitems;
   end;
@@ -143,10 +237,16 @@ begin
   inherited;
 end;
 
+
 function TThreadSafeStringList.LockList: TStringList;
 begin
-  Lock;
+  BeginWrite;
   result := FList;
+end;
+
+class function TThreadSafeStringList.new: IThreadSafeStringList;
+begin
+   result := TThreadSafeStringList.create;
 end;
 
 procedure TThreadSafeStringList.Remove(AText: string);
@@ -160,12 +260,12 @@ end;
 
 procedure TThreadSafeStringList.UnlockList;
 begin
-  UnLock;
+  EndWrite;
 end;
 
 procedure TThreadSafeStringList.Add(AText: string; ADupl: boolean = true);
 begin
-  Lock;
+  BeginWrite;
   try
     begin
       if (not ADupl) and (FList.IndexOf(AText) >= 0) then
@@ -173,7 +273,7 @@ begin
       FList.Add(AText);
     end;
   finally
-    UnLock;
+    EndWrite;
   end;
 end;
 
@@ -227,12 +327,12 @@ procedure TThreadSafeStringList.SetNames(AIndex: integer; const Value: String);
 var
   sValue: String;
 begin
-  Lock;
+  BeginWrite;
   try
     sValue := FList.ValueFromIndex[AIndex];
     FList[AIndex] := Value + '=' + sValue;
   finally
-    UnLock;
+    EndWrite;
   end;
 end;
 
@@ -399,6 +499,12 @@ begin
   end;
 end;
 
+function TThreadSafeStringList.BeginRead: TStringList;
+begin
+    inherited BeginRead;
+    result := FList;
+end;
+
 procedure TThreadSafeStringList.Clear;
 begin
   try
@@ -410,10 +516,15 @@ end;
 
 { TObjectLocked }
 
+procedure TObjectLock.BeginRead;
+begin
+  BeginWrite;
+end;
+
 constructor TObjectLock.create;
 begin
   inherited;
-  FLock := TObject.create;
+  FLock := TMultiReadExclusiveWriteSynchronizer.create;
 end;
 
 destructor TObjectLock.destroy;
@@ -422,14 +533,19 @@ begin
   inherited;
 end;
 
-procedure TObjectLock.Lock;
+procedure TObjectLock.EndRead;
 begin
-  System.TMonitor.Enter(FLock); // Bloqueia o objeto
+   EndWrite;
 end;
 
-procedure TObjectLock.UnLock;
+procedure TObjectLock.BeginWrite;
 begin
-  System.TMonitor.Exit(FLock); // Libera o objeto
+  System.TMonitor.Enter(FLock);
+end;
+
+procedure TObjectLock.EndWrite;
+begin
+  System.TMonitor.Exit(FLock);
 end;
 
 { TThreadObjectList }
@@ -448,6 +564,12 @@ end;
 function TThreadSafeObjectList<T>.Add: T;
 begin
   result := T(FItemClass.create);
+end;
+
+function TThreadSafeObjectList<T>.BeginRead: TObjectList<T>;
+begin
+   inherited BeginRead;
+   result := FList;
 end;
 
 procedure TThreadSafeObjectList<T>.Clear;
@@ -498,6 +620,7 @@ begin
   inherited;
 end;
 
+
 function TThreadSafeObjectList<T>.Getitems(AIndex: integer): T;
 begin
   with LockList do
@@ -520,8 +643,13 @@ end;
 
 function TThreadSafeObjectList<T>.LockList: TObjectList<T>;
 begin
-  Lock;
+  BeginWrite;
   result := FList;
+end;
+
+class function TThreadSafeObjectList<T>.New: IThreadSafeObjectList<T>;
+begin
+    result :=  TThreadSafeObjectList<T>.create;
 end;
 
 procedure TThreadSafeObjectList<T>.Remove(AValue: T);
@@ -545,7 +673,7 @@ end;
 
 procedure TThreadSafeObjectList<T>.UnlockList;
 begin
-  UnLock;
+  EndWrite;
 end;
 
 { TInterfaceThreadSafeList<T> }
@@ -553,13 +681,19 @@ end;
 function TThreadSafeInterfaceList<T>.Add(AValue: T): integer;
 begin
   result := -1;
-  Lock;
+  BeginWrite;
   try
     FList.Add(AValue);
     result := FList.Count - 1;
   finally
-    UnLock;
+    EndWrite;
   end;
+end;
+
+function TThreadSafeInterfaceList<T>.BeginRead: TList<T>;
+begin
+    inherited BeginRead;
+    result := FList;
 end;
 
 procedure TThreadSafeInterfaceList<T>.Clear;
@@ -607,14 +741,14 @@ procedure TThreadSafeInterfaceList<T>.Delete(AIndex: integer);
 var
   ob: T;
 begin
-  Lock;
+  BeginWrite;
   try
     ob := FList.Items[AIndex];
     FList.Delete(AIndex);
     if FOwned then
       ob := nil;
   finally
-    UnLock;
+    EndWrite;
   end;
 end;
 
@@ -630,8 +764,13 @@ end;
 
 function TThreadSafeInterfaceList<T>.LockList: TList<T>;
 begin
-  Lock;
+  BeginWrite;
   result := FList;
+end;
+
+class function TThreadSafeInterfaceList<T>.New: IThreadSafeInterfaceList<T>;
+begin
+  result :=    TThreadSafeInterfaceList<T>.create;
 end;
 
 procedure TThreadSafeInterfaceList<T>.Remove(AValue: T);
@@ -656,7 +795,7 @@ end;
 
 procedure TThreadSafeInterfaceList<T>.UnlockList;
 begin
-  UnLock;
+  EndWrite;
 end;
 
 function TThreadSafeInterfaceList<T>.IndexOf(AValue: T): integer;
@@ -666,7 +805,7 @@ var
 begin
   result := -1;
   ob2 := AValue as TObject;
-  Lock;
+  BeginWrite;
   try
     for i := 0 to FList.Count - 1 do
     begin
@@ -678,17 +817,17 @@ begin
       end;
     end;
   finally
-    UnLock;
+    EndWrite;
   end;
 end;
 
 procedure TThreadSafeInterfaceList<T>.Insert(AIndex: integer; AValue: T);
 begin
-  Lock;
+  BeginWrite;
   try
     FList.Insert(AIndex, AValue);
   finally
-    UnLock;
+    EndWrite;
   end;
 end;
 
