@@ -53,7 +53,7 @@ begin
   // AMessage - retorna o JSON com os dados do servidor
   Memo1.Lines.Add('Resposta('+FormatdateTime('hh:mm:ss',now)+'):'+AMessage);
   Memo1.Lines.Add('');
-//  FZeroConfClient.Active := false; // desliga
+  FZeroConfClient.Active := false; // desliga
 end;
 
 
