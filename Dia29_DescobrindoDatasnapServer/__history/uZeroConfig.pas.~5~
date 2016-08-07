@@ -29,6 +29,9 @@ implementation
 
 {$R *.dfm}
 
+uses IdStack;
+
+
 procedure TForm4.FormCreate(Sender: TObject);
 begin
 

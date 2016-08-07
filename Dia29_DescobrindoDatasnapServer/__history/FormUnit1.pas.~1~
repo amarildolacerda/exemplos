@@ -69,25 +69,27 @@ begin
     TDSSessionManager.Instance.TerminateAllSessions;
 end;
 
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-  FServer := TIdHTTPWebBrokerBridge.Create(Self);
-  // criar o servidor zeroConf
-  // ----------------------------------------------------------------------
-  FZeroConf := TIdZeroConfServer.create(self);
-end;
-
 procedure TForm1.ButtonStopClick(Sender: TObject);
 begin
   TerminateThreads;
   FServer.Active := False;
   FServer.Bindings.Clear;
+
   // parar o servidor broadcast
   // ----------------------------------------------------------------------
   FZeroConf.active := false;
 end;
 
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  FServer := TIdHTTPWebBrokerBridge.Create(Self);
+
+  // criar o servidor zeroConf
+  // ----------------------------------------------------------------------
+  FZeroConf := TIdZeroConfServer.create(self);
+
+
+end;
 
 procedure TForm1.StartServer;
 begin
@@ -96,6 +98,8 @@ begin
     FServer.Bindings.Clear;
     FServer.DefaultPort := StrToInt(EditPort.Text);
     FServer.Active := True;
+
+
     // configura o ZeroConf
     // --------------------------------------------------------------------
     FZeroConf.active  := false;
@@ -103,6 +107,7 @@ begin
     FZeroConf.AppDefaultHost := FZeroConf.LocalHost; // IP de onde se encontra o Servidor da Aplicação Datasnap
     FZeroConf.AppDefaultPath :='/';     // path base do servidor
     FZeroConf.active := true;           // ativar o servidors
+
   end;
 end;
 

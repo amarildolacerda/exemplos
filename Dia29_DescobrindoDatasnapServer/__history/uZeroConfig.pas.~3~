@@ -16,7 +16,7 @@ type
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
-    FZeroConfClient: TIdZeroConfClient;
+    FClient: TIdZeroConfClient;
   public
     { Public declarations }
     procedure DoReceberDados(Sender: TObject; AMessage: String);
@@ -29,23 +29,26 @@ implementation
 
 {$R *.dfm}
 
+uses IdStack;
+
+
 procedure TForm4.FormCreate(Sender: TObject);
 begin
 
   // incia o cliente
   // -------------------------------------------------
-  FZeroConfClient := TIdZeroConfClient.create(self);
-  FZeroConfClient.OnResponseEvent := DoReceberDados;
+  FClient := TIdZeroConfClient.create(self);
+  FClient.OnResponseEvent := DoReceberDados;
 
 end;
 
 procedure TForm4.Button1Click(Sender: TObject);
 begin
-  if not FZeroConfClient.active then
-    FZeroConfClient.active := true;
+  if not FClient.active then
+    FClient.active := true;
   Memo1.Lines.Add('Envia comando de procurar servidor ('+FormatdateTime('hh:mm:ss',now)+')');
-  FZeroConfClient.BroadcastIP := '';//'192.168.56.1';
-  FZeroConfClient.Send;
+  FClient.BroadcastIP := '192.168.56.1';
+  FClient.Send;
 end;
 
 procedure TForm4.DoReceberDados(Sender: TObject; AMessage: String);
@@ -53,7 +56,7 @@ begin
   // AMessage - retorna o JSON com os dados do servidor
   Memo1.Lines.Add('Resposta('+FormatdateTime('hh:mm:ss',now)+'):'+AMessage);
   Memo1.Lines.Add('');
-  FZeroConfClient.Active := false; // desliga
+  FClient.Active := false; // desliga
 end;
 
 
