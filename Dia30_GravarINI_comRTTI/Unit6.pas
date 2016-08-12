@@ -294,6 +294,7 @@ end;
 procedure TForm6.Button2Click(Sender: TObject);
 begin
   // grava o objeto  OBJ no INI
+  // inicializar OBJ antes de executar....
   with TIniFile.Create('teste.ini') do
     try
       WriteObject('SecaoClass', obj);

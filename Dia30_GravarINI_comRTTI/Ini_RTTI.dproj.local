@@ -3,5 +3,7 @@
   <Transactions>
     <Transaction>2016/08/11 22:33:40.912,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit6.pas</Transaction>
     <Transaction>2016/08/11 23:27:26.922,C:\Git\samples\Dia30_GravarINI_comRTTI\Ini_RTTI.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project2.dproj</Transaction>
+    <Transaction>2016/08/11 23:27:43.791,C:\Git\samples\Dia30_GravarINI_comRTTI\Unit6.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit6.pas</Transaction>
+    <Transaction>2016/08/11 23:27:43.791,C:\Git\samples\Dia30_GravarINI_comRTTI\Unit6.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit6.dfm</Transaction>
   </Transactions>
 </BorlandProject>

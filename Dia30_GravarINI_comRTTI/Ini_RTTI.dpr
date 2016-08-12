@@ -2,7 +2,7 @@ program Ini_RTTI;
 
 uses
   Vcl.Forms,
-  Unit6 in 'C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit6.pas' {Form6};
+  Unit6 in 'Unit6.pas' {Form6};
 
 {$R *.res}
 
