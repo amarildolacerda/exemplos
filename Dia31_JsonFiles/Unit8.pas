@@ -16,6 +16,8 @@ type
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
     procedure LerClick(Sender: TObject);
     procedure GravarClick(Sender: TObject);
     procedure CriarClick(Sender: TObject);
@@ -23,6 +25,9 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,7 +40,7 @@ var
 implementation
 
 {$R *.dfm}
-uses System.JsonFiles, IniFiles, IniFilesEx;
+uses System.JsonFiles, REST.JSON;
 
 
 
@@ -106,6 +111,57 @@ begin
     end;
 end;
 
+type
+   TJsonRttiSample = class
+  private
+    Fname: string;
+    FdateInit: TDateTime;
+    Fvalue: double;
+    FLigic: Boolean;
+    procedure SetdateInit(const Value: TDateTime);
+    procedure SetLigic(const Value: Boolean);
+    procedure Setname(const Value: string);
+    procedure Setvalue(const Value: double);
+     public
+      property name:string read Fname write Setname;
+      property  value:double read Fvalue write Setvalue;
+      property  dateInit:TDateTime read FdateInit write SetdateInit;
+      property  Ligic:Boolean read FLigic write SetLigic;
+   end;
+
+procedure TForm8.Button5Click(Sender: TObject);
+var c : TJsonRttiSample;
+    j : TJsonFiles;
+begin
+    c := TJsonRttiSample.create;
+    j := TJsonFiles.Create('teste.json');
+    try
+       c.name := 'meu teste';
+       c.value := 10.6;
+       c.dateInit := now;
+       c.Ligic := true;
+       j.WriteObject('MinhaClass',c);
+       memo1.Lines.Text:= j.ToJson ;
+       j.UpdateFile;
+    finally
+       j.Free;
+      c.Free;
+    end;
+end;
+
+procedure TForm8.Button6Click(Sender: TObject);
+var c:TJsonRttiSample;
+begin
+    c:=TJsonRttiSample.create;
+    with TJsonFiles.Create('teste.json') do
+    try
+      ReadObject('MinhaClass',c);
+      memo1.Lines.Text := TJson.ObjectToJsonString(c);
+    finally
+      free;
+    end;
+end;
+
 procedure TForm8.CriarClick(Sender: TObject);
 var
   j:TJsonFiles;
@@ -122,6 +178,17 @@ begin
     finally
       j.Free;
     end;
+end;
+
+procedure TForm8.FormCreate(Sender: TObject);
+begin
+    with TJsonFiles.Create('teste.json') do
+    try
+       memo1.Lines.Text := ToJson;
+    finally
+      free;
+    end;
+
 end;
 
 procedure TForm8.GravarClick(Sender: TObject);
@@ -148,6 +215,28 @@ begin
     finally
       j.Free;
     end;
+end;
+
+{ TJsonRttiSample }
+
+procedure TJsonRttiSample.SetdateInit(const Value: TDateTime);
+begin
+  FdateInit := Value;
+end;
+
+procedure TJsonRttiSample.SetLigic(const Value: Boolean);
+begin
+  FLigic := Value;
+end;
+
+procedure TJsonRttiSample.Setname(const Value: string);
+begin
+  Fname := Value;
+end;
+
+procedure TJsonRttiSample.Setvalue(const Value: double);
+begin
+  Fvalue := Value;
 end;
 
 end.

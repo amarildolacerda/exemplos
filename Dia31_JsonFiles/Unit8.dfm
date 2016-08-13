@@ -11,6 +11,7 @@ object Form8: TForm8
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Memo1: TMemo
@@ -84,5 +85,23 @@ object Form8: TForm8
     Caption = 'Ler Itens'
     TabOrder = 7
     OnClick = Button4Click
+  end
+  object Button5: TButton
+    Left = 272
+    Top = 101
+    Width = 149
+    Height = 25
+    Caption = 'Criar Entrada com RTTI'
+    TabOrder = 8
+    OnClick = Button5Click
+  end
+  object Button6: TButton
+    Left = 427
+    Top = 101
+    Width = 185
+    Height = 25
+    Caption = 'Ler com RTTI'
+    TabOrder = 9
+    OnClick = Button6Click
   end
 end
