@@ -18,6 +18,8 @@ type
     Button4: TButton;
     Button5: TButton;
     Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
     procedure LerClick(Sender: TObject);
     procedure GravarClick(Sender: TObject);
     procedure CriarClick(Sender: TObject);
@@ -28,6 +30,8 @@ type
     procedure Button5Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,9 +50,9 @@ uses System.JsonFiles, REST.JSON;
 
 procedure TForm8.Button1Click(Sender: TObject);
 var
-  j:TJsonFiles;
+  j:TJsonFile;
 begin
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
       j.ReadSections( memo1.Lines );
     finally
@@ -58,10 +62,10 @@ end;
 
 procedure TForm8.Button2Click(Sender: TObject);
 var
-  j:TJsonFiles;
+  j:TJsonFile;
 begin
 
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
       j.ReadSection('Pedido', memo1.Lines );
     finally
@@ -72,9 +76,9 @@ end;
 
 procedure TForm8.Button3Click(Sender: TObject);
 var
-  j:TJsonFiles;
+  j:TJsonFile;
 begin
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
       j.ReadSectionValues('Pedido',memo1.lines);
     finally
@@ -90,10 +94,10 @@ end;
 
 
 procedure TForm8.Button4Click(Sender: TObject);
-var j:TJsonFiles;
+var j:TJsonFile;
 begin
     memo1.Lines.Clear;
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
     // testar string
     memo1.Lines.Add('Vendedor: '+ j.ReadString('Pedido','Vendedor','yyy' ) );
@@ -131,10 +135,10 @@ type
 
 procedure TForm8.Button5Click(Sender: TObject);
 var c : TJsonRttiSample;
-    j : TJsonFiles;
+    j : TJsonFile;
 begin
     c := TJsonRttiSample.create;
-    j := TJsonFiles.Create('teste.json');
+    j := TJsonFile.Create('teste.json');
     try
        c.name := 'meu teste';
        c.value := 10.6;
@@ -153,7 +157,7 @@ procedure TForm8.Button6Click(Sender: TObject);
 var c:TJsonRttiSample;
 begin
     c:=TJsonRttiSample.create;
-    with TJsonFiles.Create('teste.json') do
+    with TJsonFile.Create('teste.json') do
     try
       ReadObject('MinhaClass',c);
       memo1.Lines.Text := TJson.ObjectToJsonString(c);
@@ -162,13 +166,36 @@ begin
     end;
 end;
 
+procedure TForm8.Button7Click(Sender: TObject);
+begin
+   with TJsonFile.Create('teste.json') do
+   try
+      EraseSection('Pedido');
+      memo1.Lines.Text := ToJson;
+   finally
+     free;
+   end;
+end;
+
+procedure TForm8.Button8Click(Sender: TObject);
+begin
+   with TJsonFile.Create('teste.json') do
+   try
+      DeleteKey('Financiamento','MaximoParcelas');
+      memo1.Lines.Text := ToJson;
+   finally
+     free;
+   end;
+
+end;
+
 procedure TForm8.CriarClick(Sender: TObject);
 var
-  j:TJsonFiles;
+  j:TJsonFile;
 begin
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
-      j.WriteString('Pedido','Vendedor','001'); // inseri nova linha
+      j.WriteString('Pedido','Vendedor','001'); // insert nova linha
       j.WriteString('Pedido','Vendedor','002'); // faz update da linha
       j.WriteString('Pedido','Caixa','xxx'); // faz update da linha
       j.WriteDateTime('Pedido','DataAcesso',now);
@@ -182,7 +209,7 @@ end;
 
 procedure TForm8.FormCreate(Sender: TObject);
 begin
-    with TJsonFiles.Create('teste.json') do
+    with TJsonFile.Create('teste.json') do
     try
        memo1.Lines.Text := ToJson;
     finally
@@ -193,9 +220,9 @@ end;
 
 procedure TForm8.GravarClick(Sender: TObject);
 var
-  j:TJsonFiles;
+  j:TJsonFile;
 begin
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
       j.FromJson( memo1.Lines.text );
       j.UpdateFile;
@@ -207,9 +234,9 @@ end;
 
 procedure TForm8.LerClick(Sender: TObject);
 var
-  j:TJsonFiles;
+  j:TJsonFile;
 begin
-    j:=TJsonFiles.Create('teste.json');
+    j:=TJsonFile.Create('teste.json');
     try
       memo1.Lines.Text := j.ToJson;
     finally

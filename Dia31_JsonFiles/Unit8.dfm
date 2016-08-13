@@ -16,9 +16,9 @@ object Form8: TForm8
   TextHeight = 13
   object Memo1: TMemo
     Left = 40
-    Top = 128
+    Top = 184
     Width = 609
-    Height = 513
+    Height = 457
     Lines.Strings = (
       'Memo1')
     TabOrder = 0
@@ -103,5 +103,23 @@ object Form8: TForm8
     Caption = 'Ler com RTTI'
     TabOrder = 9
     OnClick = Button6Click
+  end
+  object Button7: TButton
+    Left = 43
+    Top = 128
+    Width = 223
+    Height = 25
+    Caption = 'EraseSection'
+    TabOrder = 10
+    OnClick = Button7Click
+  end
+  object Button8: TButton
+    Left = 271
+    Top = 128
+    Width = 150
+    Height = 25
+    Caption = 'DeleteKey'
+    TabOrder = 11
+    OnClick = Button8Click
   end
 end
