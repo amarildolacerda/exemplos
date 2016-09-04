@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/09/03 00:01:51.000.030,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
+    <Transaction>2016/09/03 00:02:31.000.097,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas=C:\Git\samples\Dia32_JsonToRecord\Unit10.pas</Transaction>
+    <Transaction>2016/09/03 00:02:31.000.097,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm=C:\Git\samples\Dia32_JsonToRecord\Unit10.dfm</Transaction>
+    <Transaction>2016/09/03 00:02:33.000.759,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\Git\samples\Dia32_JsonToRecord\Project3.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
