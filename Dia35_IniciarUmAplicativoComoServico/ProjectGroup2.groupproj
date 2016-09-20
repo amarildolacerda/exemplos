@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A2783ACF-55A3-42E8-BA66-2D0790C96989}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ProjAppService.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ProjApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjAppService">
+        <MSBuild Projects="ProjAppService.dproj"/>
+    </Target>
+    <Target Name="ProjAppService:Clean">
+        <MSBuild Projects="ProjAppService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjAppService:Make">
+        <MSBuild Projects="ProjAppService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjApp">
+        <MSBuild Projects="ProjApp.dproj"/>
+    </Target>
+    <Target Name="ProjApp:Clean">
+        <MSBuild Projects="ProjApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjApp:Make">
+        <MSBuild Projects="ProjApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="PdvSync">
+        <MSBuild Projects="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj"/>
+    </Target>
+    <Target Name="PdvSync:Clean">
+        <MSBuild Projects="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="PdvSync:Make">
+        <MSBuild Projects="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjAppService;ProjApp;PdvSync"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjAppService:Clean;ProjApp:Clean;PdvSync:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjAppService:Make;ProjApp:Make;PdvSync:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

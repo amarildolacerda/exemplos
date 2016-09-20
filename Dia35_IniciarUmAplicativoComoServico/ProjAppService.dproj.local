@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/09/19 18:13:18.000.322,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
+    <Transaction>2016/09/19 18:13:59.000.136,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas=C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\UnitService.pas</Transaction>
+    <Transaction>2016/09/19 18:13:59.000.136,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm=C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\UnitService.dfm</Transaction>
+    <Transaction>2016/09/19 18:14:04.000.957,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\ProjAppService.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
