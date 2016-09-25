@@ -9,9 +9,6 @@
         <Projects Include="ProjApp.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -38,23 +35,14 @@
     <Target Name="ProjApp:Make">
         <MSBuild Projects="ProjApp.dproj" Targets="Make"/>
     </Target>
-    <Target Name="PdvSync">
-        <MSBuild Projects="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj"/>
-    </Target>
-    <Target Name="PdvSync:Clean">
-        <MSBuild Projects="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="PdvSync:Make">
-        <MSBuild Projects="C:\Fontes\Sincronismo\PDVSync\PdvSync.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="ProjAppService;ProjApp;PdvSync"/>
+        <CallTarget Targets="ProjAppService;ProjApp"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="ProjAppService:Clean;ProjApp:Clean;PdvSync:Clean"/>
+        <CallTarget Targets="ProjAppService:Clean;ProjApp:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="ProjAppService:Make;ProjApp:Make;PdvSync:Make"/>
+        <CallTarget Targets="ProjAppService:Make;ProjApp:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

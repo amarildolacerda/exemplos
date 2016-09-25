@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions/>
-  <Default.Personality>
-    <Projects ActiveProject="C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\ProjAppService.dproj"/>
-  </Default.Personality>
+	<Transactions/>
+	<Default.Personality>
+		<Projects ActiveProject="C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\ProjApp.dproj"/>
+	</Default.Personality>
 </BorlandProject>

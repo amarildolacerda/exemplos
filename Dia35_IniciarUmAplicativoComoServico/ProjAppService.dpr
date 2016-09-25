@@ -13,9 +13,17 @@ const
 {$R *.RES}
 
 begin
+
+  { parametros
+      /app  -> executa como aplicativo
+      /install -> instala como serviço
+      /uninstall -> desinstala o serviço
+  }
+
+
   if IsServiceInstalled(NomeServico) and
     (not(FindCmdLineSwitch('app', ['-', '\', '/'], true))) then
-  begin
+  begin         // é serviço
     try
      if not Application.DelayInitialize or Application.Installing then
         Application.Initialize;
@@ -26,7 +34,7 @@ begin
     end;
   end
   else
-  begin
+  begin       // é app
       Application.CreateForm(TForm10, Form10);
       form10.ShowModal;
   end;

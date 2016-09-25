@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2016/09/19 18:47:46.311,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
-    <Transaction>2016/09/19 18:48:01.263,C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm</Transaction>
-    <Transaction>2016/09/19 18:48:01.263,C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
-    <Transaction>2016/09/19 18:48:05.168,C:\Users\amari\Documents\Embarcadero\Studio\Projects\ProjApp.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
-    <Transaction>2016/09/19 19:35:08.321,C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\ProjApp.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\ProjApp.dproj</Transaction>
-    <Transaction>2016/09/19 19:35:36.811,C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\unitApp.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.dfm</Transaction>
-    <Transaction>2016/09/19 19:35:36.811,C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\unitApp.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.pas</Transaction>
+	<Transactions>
+    <Transaction>2016/09/19 18:47:46.000.311,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
+    <Transaction>2016/09/19 18:48:01.000.263,C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm</Transaction>
+    <Transaction>2016/09/19 18:48:01.000.263,C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
+    <Transaction>2016/09/19 18:48:05.000.168,C:\Users\amari\Documents\Embarcadero\Studio\Projects\ProjApp.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2016/09/19 19:35:08.000.321,C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\ProjApp.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\ProjApp.dproj</Transaction>
+    <Transaction>2016/09/19 19:35:36.000.811,C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\unitApp.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.dfm</Transaction>
+    <Transaction>2016/09/19 19:35:36.000.811,C:\Git\samples\Dia35_IniciarUmAplicativoComoServico\unitApp.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\UnitApp.pas</Transaction>
   </Transactions>
 </BorlandProject>

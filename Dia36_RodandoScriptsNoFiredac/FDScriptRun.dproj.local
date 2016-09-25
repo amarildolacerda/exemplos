@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/09/22 08:37:19.000.114,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
+    <Transaction>2016/09/22 08:37:30.000.669,C:\Users\amari\Documents\Embarcadero\Studio\Projects\git.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm</Transaction>
+    <Transaction>2016/09/22 08:37:30.000.669,C:\Users\amari\Documents\Embarcadero\Studio\Projects\git.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
+    <Transaction>2016/09/22 08:38:21.000.469,C:\Git\samples\Dia36_RodandoScriptsNoFiredac\FDScriptRun.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2016/09/22 08:39:03.000.308,C:\Git\samples\Dia36_RodandoScriptsNoFiredac\wFDScriptRun.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\git.dfm</Transaction>
+    <Transaction>2016/09/22 08:39:03.000.308,C:\Git\samples\Dia36_RodandoScriptsNoFiredac\wFDScriptRun.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\git.pas</Transaction>
+  </Transactions>
+</BorlandProject>
