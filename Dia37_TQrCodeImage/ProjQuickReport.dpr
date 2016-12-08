@@ -2,7 +2,7 @@ program ProjQuickReport;
 
 uses
   Vcl.Forms,
-  Unit10 in 'Unit10.pas' {Form10};
+  UnitQuickReport in 'UnitQuickReport.pas' {Form10};
 
 {$R *.res}
 

@@ -1,0 +1,2 @@
+c:\git\samples\dia37_tqrcodeimage\win32\debug\logs\ProjQuickReport_Debug_20160925.log
+C:\Program Files (x86)\Store\Config\zConnections.ini

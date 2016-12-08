@@ -2,11 +2,13 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2016/09/25 14:28:29.000.886,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
-    <Transaction>2016/09/25 14:29:14.000.066,C:\Git\samples\Dia37_TQrCodeImage\Unit10.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm</Transaction>
-    <Transaction>2016/09/25 14:29:14.000.066,C:\Git\samples\Dia37_TQrCodeImage\Unit10.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas</Transaction>
-    <Transaction>2016/09/25 14:29:16.000.209,C:\Git\samples\Dia37_TQrCodeImage\Project3.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2016/09/25 14:29:14.000.066,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.dfm=C:\Git\samples\Dia37_TQrCodeImage\Unit10.dfm</Transaction>
+    <Transaction>2016/09/25 14:29:14.000.066,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit10.pas=C:\Git\samples\Dia37_TQrCodeImage\Unit10.pas</Transaction>
+    <Transaction>2016/09/25 14:29:16.000.209,C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project3.dproj=C:\Git\samples\Dia37_TQrCodeImage\Project3.dproj</Transaction>
     <Transaction>2016/09/25 15:29:25.000.458,=C:\Git\samples\Dia37_TQrCodeImage\Unit1.pas</Transaction>
-    <Transaction>2016/09/25 15:29:47.000.368,C:\Fontes\WBAReportXE\qrQrCode.pas=C:\Git\samples\Dia37_TQrCodeImage\Unit1.pas</Transaction>
-    <Transaction>2016/09/25 17:56:29.387,C:\Git\samples\Dia37_TQrCodeImage\ProjQuickReport.dproj=C:\Git\samples\Dia37_TQrCodeImage\Project3.dproj</Transaction>
+    <Transaction>2016/09/25 15:29:47.000.368,C:\Git\samples\Dia37_TQrCodeImage\Unit1.pas=C:\Fontes\WBAReportXE\qrQrCode.pas</Transaction>
+    <Transaction>2016/09/25 17:56:29.000.387,C:\Git\samples\Dia37_TQrCodeImage\Project3.dproj=C:\Git\samples\Dia37_TQrCodeImage\ProjQuickReport.dproj</Transaction>
+    <Transaction>2016/09/25 17:56:40.000.861,C:\Git\samples\Dia37_TQrCodeImage\Unit10.pas=C:\Git\samples\Dia37_TQrCodeImage\UnitQuickReport.pas</Transaction>
+    <Transaction>2016/09/25 17:56:40.000.861,C:\Git\samples\Dia37_TQrCodeImage\Unit10.dfm=C:\Git\samples\Dia37_TQrCodeImage\UnitQuickReport.dfm</Transaction>
   </Transactions>
 </BorlandProject>
