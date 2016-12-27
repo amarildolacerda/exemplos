@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, System.Generics.collections,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.CheckLst;
 
 type
 
@@ -23,11 +23,14 @@ type
     Button3: TButton;
     Button4: TButton;
     Button5: TButton;
+    Button6: TButton;
+    CheckListBox1: TCheckListBox;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
   private
     procedure ExemploGenericsRecord;
     { Private declarations }
@@ -76,7 +79,6 @@ Type
     cor: TColor;
   end;
 
-
   TCarrosListItemRec = Record
   public
     modelo: string;
@@ -85,6 +87,8 @@ Type
     cor: TColor;
   end;
 
+var
+  LCarrosRec: TList<TCarrosListItemRec>;
 
 procedure TForm41.Button1Click(Sender: TObject);
 begin
@@ -111,13 +115,21 @@ begin
   ExemploGenericsRecord;
 end;
 
+procedure TForm41.Button6Click(Sender: TObject);
+begin
+  with LCarrosRec.Add do
+  begin
+
+  end;
+end;
+
 procedure TForm41.ExemploCollection;
 var
   LCarros: TListaCarroItems;
   LItem: TObject;
 
   LItem2, LItem3: TCarrosItem;
-  i:integer;
+  i: integer;
 begin
   LCarros := TListaCarroItems.create(TCarrosItem);
   try
@@ -135,13 +147,14 @@ begin
     LItem3 := LCarros.Add;
     LItem3.modelo := 'fiat 147';
 
-    //showMessage(LCarros.Count.ToString + ' - ' + LItem3.modelo);
+    // showMessage(LCarros.Count.ToString + ' - ' + LItem3.modelo);
 
-    for I := 0 to LCarros.Count-1 do
-      begin
-        //....
-      caption := ( LCarros.Items[I] as TCarrosItem).modelo;///
-      end;
+    for i := 0 to LCarros.Count - 1 do
+    begin
+      // ....
+      caption := (LCarros.Items[i] as TCarrosItem).modelo;
+      ///
+    end;
   finally
     LCarros.Free;
   end;
@@ -151,7 +164,7 @@ procedure TForm41.ExemploGenerics;
 var
   LCarros: TObjectList<TCarrosListItem>;
   LItem: TCarrosListItem;
-  i:integer;
+  i: integer;
   it: TCarrosListItem;
 begin
   LCarros := TObjectList<TCarrosListItem>.create(true);
@@ -159,13 +172,11 @@ begin
     LItem := TCarrosListItem.create;
     LCarros.Add(LItem);
 
-
     /// ou com FOR
-    for I := 0 to LCarros.count-1 do
+    for i := 0 to LCarros.Count - 1 do
     begin
-     caption := LCarros.Items[i].modelo;
+      caption := LCarros.Items[i].modelo;
     end;
-
 
     // ou com FORIN
     for it in LCarros do
@@ -173,21 +184,16 @@ begin
       caption := it.modelo;
     end;
 
-
-
   finally
     LCarros.Free;
   end;
 
 end;
 
-
-
 procedure TForm41.ExemploGenericsRecord;
 var
-  LCarros: TList<TCarrosListItemRec>;
   LItem: TCarrosListItemRec;
-  i:integer;
+  i: integer;
   it: TCarrosListItemRec;
 begin
   LCarros := TList<TCarrosListItemRec>.create;
@@ -195,21 +201,17 @@ begin
     LItem.modelo := 'passat geracao 3';
     LCarros.Add(LItem);
 
-
     /// ou com FOR
-    for I := 0 to pred(LCarros.count) do
+    for i := 0 to pred(LCarros.Count) do
     begin
-     caption := LCarros.Items[i].modelo;
+      caption := LCarros.Items[i].modelo;
     end;
-
 
     // ou com FORIN
     for it in LCarros do
     begin
-      caption :=Caption +'|'+ it.modelo;
+      caption := caption + '|' + it.modelo;
     end;
-
-
 
   finally
     LCarros.Free;
@@ -217,13 +219,12 @@ begin
 
 end;
 
-
 procedure TForm41.ExemploList;
 var
   LList: TList;
   LItem: TCarrosListItem;
   L: TObject;
-  i:integer;
+  i: integer;
 begin
   LList := TList.create;
   try
@@ -234,12 +235,11 @@ begin
 
     showMessage(LList.Count.ToString + ' - ' + LItem.modelo);
 
+    for i := 0 to LList.Count - 1 do
+    begin
+      caption := TCarrosListItem(LList.Items[i]).modelo; //
 
-    for I := 0 to LList.Count-1 do
-      begin
-       caption :=  TCarrosListItem(LList.Items[i]).modelo; //
-
-      end;
+    end;
 
     while LList.Count > 0 do
     begin
@@ -294,5 +294,13 @@ function TListaCarroItems.Add: TCarrosItem;
 begin
   result := (Inherited Add) as TCarrosItem;
 end;
+
+initialization
+
+LCarrosRec := TList<TCarrosListItemRec>.create;
+
+finalization
+
+LCarrosRec.Free;
 
 end.

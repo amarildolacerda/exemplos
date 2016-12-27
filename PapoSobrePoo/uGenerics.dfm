@@ -51,11 +51,28 @@ object Form41: TForm41
   end
   object Button5: TButton
     Left = 40
-    Top = 232
+    Top = 215
     Width = 137
     Height = 25
     Caption = 'Generics Record'
     TabOrder = 4
     OnClick = Button5Click
+  end
+  object Button6: TButton
+    Left = 240
+    Top = 358
+    Width = 273
+    Height = 25
+    Caption = 'Adicionar'
+    TabOrder = 5
+    OnClick = Button6Click
+  end
+  object CheckListBox1: TCheckListBox
+    Left = 240
+    Top = 71
+    Width = 273
+    Height = 281
+    ItemHeight = 13
+    TabOrder = 6
   end
 end
