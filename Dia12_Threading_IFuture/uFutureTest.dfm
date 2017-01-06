@@ -11,6 +11,8 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBox1: TGroupBox
@@ -134,5 +136,14 @@ object Form2: TForm2
     Caption = 'Debug Parallel'
     TabOrder = 5
     OnClick = Button9Click
+  end
+  object Button10: TButton
+    Left = 296
+    Top = 384
+    Width = 75
+    Height = 25
+    Caption = 'Button10'
+    TabOrder = 6
+    OnClick = Button10Click
   end
 end
