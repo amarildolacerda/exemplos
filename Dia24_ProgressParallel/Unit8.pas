@@ -16,6 +16,7 @@ type
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
   private
+    procedure Prog(msg: string; ATipo: TLogEventType);
     { Private declarations }
   public
     { Public declarations }
@@ -28,39 +29,59 @@ implementation
 
 {$R *.dfm}
 
+
+const
+  LSeed = 1000;
+
+  procedure TForm8.Prog(msg: string; ATipo: TLogEventType);
+  var
+    n: integer;
+  begin
+    LogEvents.DoProgress(self, 0, ATipo, msg);
+    n := Random(LSeed);
+    sleep(n);
+  end;
+
+
 procedure TForm8.Button1Click(Sender: TObject);
 var
   LProgr: IProgressEvents;
   i: integer;
+
 begin
   // inicializa a janela de progresso
   LProgr := TProgressEvents.new;
-  LProgr.max := 100;  // opcional: marca o número máximo itens
-  LProgr.MaxThreads := SpinEdit1.Value ;  // indica o número máximo de threads em paralelo
-  LProgr.CanCancel := true;    // marca se pode cancelar a operação
+  LProgr.max := 100; // opcional: marca o número máximo itens
+  LProgr.MaxThreads := SpinEdit1.Value;
+  // indica o número máximo de threads em paralelo
+  LProgr.CanCancel := false; // marca se pode cancelar a operação
 
   for i := 1 to 100 do
-  begin   // loop de demonstração - simulando uma lista de processos
-    LProgr.Text := 'Produto: ' + intToStr(i);   // texto livre
-    LProgr.add(i, 'Produto: ' + intToStr(i),    // processo a executar
+  begin // loop de demonstração - simulando uma lista de processos
+    LProgr.Text := 'Produto: ' + intToStr(i); // texto livre
+    LProgr.add(i, 'Produto: ' + intToStr(i), // processo a executar
       procedure(x: integer)
       var
         n: integer;
         msg: string;
       begin
-        msg := 'Produto: ' + intToStr(x);    // processo em execução
-        LogEvents.DoProgress(self, 0, etStarting, msg);
-        n := Random(10000);
-        sleep(n);
-        LogEvents.DoProgress(self, 0, etWorking, msg);
-        n := Random(10000);
-        if LProgr.Terminated then exit;    // checa se o usuario cancelou a operação
-        sleep(n);
+        msg := 'Produto: ' + intToStr(x); // processo em execução
+        LogEvents.DoProgress(self, 0, etCreating, msg);
+        Prog(msg, etWaiting);
+        Prog(msg, etStarting);
+        Prog(msg, etPreparing);
+        Prog(msg, etLoading);
+        Prog(msg, etCalc);
+        Prog(msg, etWorking);
+        Prog(msg, etSaving);
+        Prog(msg, etEnding);
+        Prog(msg, etFinished);
       end);
     if LProgr.Terminated then
       break;
   end;
-  LogEvents.DoProgress(self, 0, etAllFinished, '');  // sinaliza que todas os processo foram completados.
+  LogEvents.DoProgress(self, 0, etAllFinished, '');
+  // sinaliza que todas os processo foram completados.
 end;
 
 end.

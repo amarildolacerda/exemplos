@@ -4,7 +4,7 @@ object ProgressEvents: TProgressEvents
   BorderIcons = [biMinimize, biMaximize]
   Caption = 'Executando......'
   ClientHeight = 264
-  ClientWidth = 412
+  ClientWidth = 393
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,6 +12,7 @@ object ProgressEvents: TProgressEvents
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -21,7 +22,7 @@ object ProgressEvents: TProgressEvents
     AlignWithMargins = True
     Left = 3
     Top = 3
-    Width = 406
+    Width = 387
     Height = 41
     Align = alTop
     Alignment = taLeftJustify
@@ -39,47 +40,80 @@ object ProgressEvents: TProgressEvents
   end
   object Panel2: TPanel
     Left = 0
-    Top = 223
-    Width = 412
-    Height = 41
+    Top = 218
+    Width = 393
+    Height = 46
     Align = alBottom
     BevelOuter = bvNone
+    Color = clBtnHighlight
+    ParentBackground = False
     TabOrder = 1
     DesignSize = (
-      412
-      41)
+      393
+      46)
+    object Bevel1: TBevel
+      Left = 0
+      Top = 0
+      Width = 393
+      Height = 50
+      Align = alTop
+      ExplicitLeft = 392
+      ExplicitTop = 16
+      ExplicitWidth = 50
+    end
     object SpeedButton1: TSpeedButton
-      Left = 298
+      Left = 279
       Top = 4
       Width = 108
-      Height = 32
+      Height = 37
       Anchors = [akTop, akRight]
       Caption = 'OK'
       OnClick = SpeedButton1Click
     end
     object lbPosition: TLabel
-      Left = 19
-      Top = 16
+      Left = 20
+      Top = 17
       Width = 3
       Height = 13
     end
     object lblErro: TLabel
       Left = 115
       Top = 6
-      Width = 177
+      Width = 158
       Height = 33
+      Anchors = [akLeft, akTop, akRight]
       AutoSize = False
       WordWrap = True
       OnClick = lblErroClick
+    end
+    object lbTimer: TLabel
+      Left = 20
+      Top = 31
+      Width = 3
+      Height = 13
+    end
+    object cbRolarLista: TCheckBox
+      Left = 3
+      Top = 2
+      Width = 97
+      Height = 17
+      Caption = 'rolar a lista'
+      TabOrder = 0
+      Visible = False
     end
   end
   object ValueListEditor1: TValueListEditor
     Left = 0
     Top = 47
-    Width = 412
-    Height = 176
+    Width = 393
+    Height = 171
     Align = alClient
-    Color = clHotLight
+    BorderStyle = bsNone
+    Color = clHighlightText
+    DoubleBuffered = True
+    FixedColor = clHighlightText
+    Options = [goFixedVertLine, goFixedHorzLine, goHorzLine, goColSizing, goAlwaysShowEditor, goThumbTracking]
+    ParentDoubleBuffered = False
     Strings.Strings = (
       '=')
     TabOrder = 2
@@ -88,7 +122,7 @@ object ProgressEvents: TProgressEvents
       'Fase')
     ColWidths = (
       300
-      106)
+      91)
     RowHeights = (
       18
       18)
