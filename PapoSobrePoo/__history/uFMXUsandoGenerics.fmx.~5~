@@ -1,0 +1,40 @@
+object Form41: TForm41
+  Left = 0
+  Top = 0
+  Caption = 'Form41'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object StringGrid1: TStringGrid
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 16.000000000000000000
+    Position.Y = 32.000000000000000000
+    Size.Width = 320.000000000000000000
+    Size.Height = 425.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 316.000000000000000000
+    Viewport.Height = 400.000000000000000000
+  end
+  object AdapterBindSource1: TAdapterBindSource
+    AutoActivate = True
+    Adapter = DataGeneratorAdapter1
+    ScopeMappings = <>
+    Left = 80
+    Top = 168
+  end
+  object DataGeneratorAdapter1: TDataGeneratorAdapter
+    FieldDefs = <>
+    Active = True
+    AutoPost = False
+    Options = [loptAllowInsert, loptAllowDelete, loptAllowModify]
+    Left = 80
+    Top = 240
+  end
+end

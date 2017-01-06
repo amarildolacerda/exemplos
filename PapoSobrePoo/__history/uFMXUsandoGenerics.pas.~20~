@@ -1,0 +1,67 @@
+unit uFMXUsandoGenerics;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants, System.Generics.collections,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, System.Rtti,
+  FMX.Grid.Style, Data.Bind.ObjectScope, Data.Bind.Components,
+  FMX.Controls.Presentation, FMX.ScrollBox, FMX.Grid, Data.Bind.EngExt,
+  Fmx.Bind.DBEngExt, Fmx.Bind.Grid, System.Bindings.Outputs, Fmx.Bind.Editors,
+  Data.Bind.Grid, FMX.StdCtrls;
+
+type
+
+  TBase = class
+    Nome: string;
+  end;
+
+  TForm41 = class(TForm)
+    StringGrid1: TStringGrid;
+    AdapterBindSource1: TAdapterBindSource;
+    DataGeneratorAdapter1: TDataGeneratorAdapter;
+    Button1: TButton;
+    BindingsList1: TBindingsList;
+    LinkGridToDataSourceAdapterBindSource1: TLinkGridToDataSource;
+    procedure AdapterBindSource1CreateAdapter(Sender: TObject;
+      var ABindSourceAdapter: TBindSourceAdapter);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+    FLista: TList<TBase>;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form41: TForm41;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm41.AdapterBindSource1CreateAdapter(Sender: TObject;
+  var ABindSourceAdapter: TBindSourceAdapter);
+begin
+   FLista:= TList<TBase>.create;
+   ABindSourceAdapter := TListBindSourceAdapter<TBase>.Create(self,FLista);
+end;
+
+procedure TForm41.Button1Click(Sender: TObject);
+var base:TBase;
+begin
+  StringGrid1.BeginUpdate;
+  try
+  base := TBase.Create;
+  base.Nome := DateTimeToStr(now);
+  FLista.Add(base);
+  finally
+    StringGrid1.EndUpdate;
+  end;
+
+  AdapterBindSource1.InternalAdapter.Refresh;
+
+end;
+
+end.

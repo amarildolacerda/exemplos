@@ -1,0 +1,16 @@
+﻿[Button1]
+Coordinates=10,71,53,51
+
+[StringGrid1]
+Coordinates=10,10,70,51
+Visible=True
+
+[AdapterBindSource1]
+Coordinates=90,10,116,51
+
+[]
+Coordinates=207,1,82,33
+
+[BindingsList1]
+Coordinates=99,80,82,33
+

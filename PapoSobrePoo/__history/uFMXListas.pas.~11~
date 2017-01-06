@@ -1,0 +1,105 @@
+unit uFMXListas;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  System.Generics.Collections,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
+  FMX.Controls.Presentation, FMX.StdCtrls, System.Rtti, FMX.Grid.Style,
+  Data.Bind.EngExt, FMX.Bind.DBEngExt, FMX.Bind.Grid, System.Bindings.Outputs,
+  FMX.Bind.Editors, Data.Bind.Components, Data.Bind.Grid, Data.Bind.ObjectScope,
+  FMX.ScrollBox, FMX.Grid, FMX.Edit;
+
+type
+
+  TBaseClass = Class
+  public
+    Nome: string;
+  End;
+
+
+  TListaBase = class(TObjectList<TBaseClass>)
+  public
+     function Add:TBaseClass;
+  end;
+
+  TForm41 = class(TForm)
+    Button1: TButton;
+    StringGrid1: TStringGrid;
+    AdapterBindSource1: TAdapterBindSource;
+    BindingsList1: TBindingsList;
+    LinkGridToDataSourceAdapterBindSource1: TLinkGridToDataSource;
+    Button2: TButton;
+    Edit1: TEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure AdapterBindSource1CreateAdapter(Sender: TObject;
+      var ABindSourceAdapter: TBindSourceAdapter);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+    FLista: TListaBase;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form41: TForm41;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm41.AdapterBindSource1CreateAdapter(Sender: TObject;
+  var ABindSourceAdapter: TBindSourceAdapter);
+begin
+  FLista := TListaBase.create(true);
+  ABindSourceAdapter := TListBindSourceAdapter<TBaseClass>.create(self,
+    FLista, false);
+end;
+
+procedure TForm41.Button1Click(Sender: TObject);
+var
+  obj: TBaseClass;
+begin
+
+  obj := TBaseClass.create;
+  obj.Nome := 'List: ' + datetimeToStr(now);
+  FLista.Add(obj);
+
+  with FLista.Add do
+  begin
+    nome := 'Lista2: '+ datetimeToStr(now);
+  end;
+
+  AdapterBindSource1.InternalAdapter.Refresh;
+
+  Edit1.Text := FLista.Count.ToString;
+
+end;
+
+procedure TForm41.Button2Click(Sender: TObject);
+begin
+  if StringGrid1.Row >= 0 then
+    FLista.Delete(StringGrid1.Row);
+  AdapterBindSource1.InternalAdapter.Refresh;
+
+  Edit1.Text := FLista.Count.ToString;
+
+end;
+
+procedure TForm41.FormDestroy(Sender: TObject);
+begin
+  FLista.Free;
+end;
+
+{ TListaBase }
+
+function TListaBase.Add: TBaseClass;
+begin
+   result := TBaseClass.Create;
+end;
+
+end.
