@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2017/01/06 22:12:36.983,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit43.pas</Transaction>
+    <Transaction>2017/01/06 22:14:20.182,C:\Git\Exemplos\exemplos\PapoSobrePoo\uJanelaProgressMutilThreading.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit43.pas</Transaction>
+    <Transaction>2017/01/06 22:14:20.182,C:\Git\Exemplos\exemplos\PapoSobrePoo\uJanelaProgressMutilThreading.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit43.dfm</Transaction>
+    <Transaction>2017/01/06 22:14:37.012,C:\Git\Exemplos\exemplos\PapoSobrePoo\ProjProgressoMultiThreading.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project20.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -4,14 +4,14 @@
     <Transaction>2014/11/28 23:10:29.000.572,=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit44.pas</Transaction>
     <Transaction>2014/11/28 23:10:39.000.551,C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Project43.dproj=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Project43.dproj</Transaction>
     <Transaction>2014/11/28 23:11:23.000.263,=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit45.pas</Transaction>
-    <Transaction>2014/11/28 23:11:49.000.232,C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit45.pas=C:\fontes\mThreading.pas</Transaction>
-    <Transaction>2014/11/30 00:47:56.000.300,C:\fontes\mThreading.pas=C:\fontes\DXE6\System.Threading.pas</Transaction>
+    <Transaction>2014/11/28 23:11:49.000.232,C:\fontes\mThreading.pas=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit45.pas</Transaction>
+    <Transaction>2014/11/30 00:47:56.000.300,C:\fontes\DXE6\System.Threading.pas=C:\fontes\mThreading.pas</Transaction>
     <Transaction>2014/11/30 10:53:00.000.542,C:\fontes\DXE6\System.Threading.pas=</Transaction>
     <Transaction>2014/11/30 10:53:44.000.890,=c:\fontes\dxe6\System.Threading.pas</Transaction>
-    <Transaction>2014/11/30 10:53:59.000.709,c:\fontes\dxe6\System.Threading.pas=c:\fontes\dxe6\System.ThreadingLite.pas</Transaction>
-    <Transaction>2014/11/30 11:01:25.000.405,c:\fontes\dxe6\System.ThreadingLite.pas=c:\fontes\dxe6\Threading.pas</Transaction>
-    <Transaction>2014/11/30 11:07:43.000.239,C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Project43.dproj=C:\fontes\treinamento\D11_Threading_TParallel\Proj_Task_TParallel.dproj</Transaction>
-    <Transaction>2014/11/30 11:08:11.000.676,C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit44.dfm=C:\fontes\treinamento\D11_Threading_TParallel\wProjExemplo.dfm</Transaction>
-    <Transaction>2014/11/30 11:08:11.000.676,C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit44.pas=C:\fontes\treinamento\D11_Threading_TParallel\wProjExemplo.pas</Transaction>
+    <Transaction>2014/11/30 10:53:59.000.709,c:\fontes\dxe6\System.ThreadingLite.pas=c:\fontes\dxe6\System.Threading.pas</Transaction>
+    <Transaction>2014/11/30 11:01:25.000.405,c:\fontes\dxe6\Threading.pas=c:\fontes\dxe6\System.ThreadingLite.pas</Transaction>
+    <Transaction>2014/11/30 11:07:43.000.239,C:\fontes\treinamento\D11_Threading_TParallel\Proj_Task_TParallel.dproj=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Project43.dproj</Transaction>
+    <Transaction>2014/11/30 11:08:11.000.676,C:\fontes\treinamento\D11_Threading_TParallel\wProjExemplo.dfm=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit44.dfm</Transaction>
+    <Transaction>2014/11/30 11:08:11.000.676,C:\fontes\treinamento\D11_Threading_TParallel\wProjExemplo.pas=C:\Users\amarildo\Documents\Embarcadero\Studio\Projects\Unit44.pas</Transaction>
   </Transactions>
 </BorlandProject>

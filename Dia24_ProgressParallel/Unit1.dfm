@@ -22,8 +22,8 @@ object Form1: TForm1
     Caption = 'Erros'
   end
   object Label2: TLabel
-    Left = 16
-    Top = 168
+    Left = 193
+    Top = 3
     Width = 44
     Height = 13
     Caption = 'Sucessos'
@@ -31,8 +31,8 @@ object Form1: TForm1
   object Memo1: TMemo
     Left = 8
     Top = 18
-    Width = 377
-    Height = 137
+    Width = 161
+    Height = 280
     Lines.Strings = (
       'Memo1')
     TabOrder = 0
@@ -47,10 +47,10 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Memo2: TMemo
-    Left = 8
-    Top = 187
-    Width = 377
-    Height = 89
+    Left = 192
+    Top = 18
+    Width = 160
+    Height = 280
     Lines.Strings = (
       'Memo2')
     TabOrder = 2

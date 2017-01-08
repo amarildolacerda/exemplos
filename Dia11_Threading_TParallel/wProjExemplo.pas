@@ -10,7 +10,9 @@ uses
 type
   TForm44 = class(TForm)
     Memo1: TMemo;
-    procedure FormCreate(Sender: TObject);
+    Button1: TButton;
+    CheckBox1: TCheckBox;
+    procedure Button1Click(Sender: TObject);
   private
     procedure add(s: String);
     { Private declarations }
@@ -25,46 +27,130 @@ implementation
 
 {$R *.dfm}
 
-uses System.Threading;
+uses System.SyncObjs, System.Threading;
 
-procedure TForm44.add(s:String);
+procedure TForm44.add(s: String);
 begin
-      TThread.Queue(TThread.CurrentThread,
-      procedure
-       begin
-         memo1.lines.add(s);
-       end
-     );
+  TThread.Queue(TThread.CurrentThread,
+    procedure
+    begin
+      Memo1.lines.add(s);
+    end);
+end;
+
+Type
+  TTaskHelper = class helper for TTask
+  private type
+    TUnsafeTaskEx = record
+    private
+      [Unsafe]
+      // preciso de um record UNSAFE para nao incrementar o RefCount da Interface
+      FTask: TTask;
+    public
+      property Value: TTask read FTask write FTask;
+    end;
+  public
+    class function WaitForAllEx(AArray: Array of ITask;
+    ATimeOut: int64 = INFINITE): boolean;
+  end;
+
+class function TTaskHelper.WaitForAllEx(AArray: array of ITask;
+ATimeOut: int64 = INFINITE): boolean;
+var
+  task: TUnsafeTaskEx;
+  i: integer;
+  taskInter: TArray<TUnsafeTaskEx>;
+  completou: boolean;
+  Canceled, Exceptions: boolean;
+begin
+  Canceled := false;
+  Exceptions := false;
+  result := true;
+  try
+    for i := low(AArray) to High(AArray) do
+    begin
+      task.Value := TTask(AArray[i]);
+      if task.Value = nil then
+        raise EArgumentNilException.Create('Wait Nil Task');
+
+      completou := task.Value.IsComplete;
+      if not completou then
+      begin
+        taskInter := taskInter + [task];
+      end
+      else
+      begin
+        if task.Value.HasExceptions then
+          Exceptions := true
+        else if task.Value.IsCanceled then
+          Canceled := true;
+      end;
+    end;
+
+    try
+      for task in taskInter do
+      begin
+        while not task.Value.IsComplete do
+        begin
+          try
+            TThread.Queue(nil,
+              procedure
+              begin
+                application.ProcessMessages;
+              end);
+          finally
+          end;
+        end;
+        if task.Value.IsComplete then
+        begin
+          if task.Value.HasExceptions then
+            Exceptions := true
+          else if task.Value.IsCanceled then
+            Canceled := true;
+        end;
+      end;
+    finally
+    end;
+  except
+    result := false;
+  end;
+
+  if (not Exceptions and not Canceled) then
+    Exit;
+  if Exceptions or Canceled then
+    raise EOperationCancelled.Create
+      ('One Or More Tasks HasExceptions/Canceled');
 
 end;
 
-procedure TForm44.FormCreate(Sender: TObject);
+procedure TForm44.Button1Click(Sender: TObject);
 var
   tsk: array [0 .. 2] of ITask;
   i, n: integer;
 begin
-  tsk[0] := TTask.create(
+  tsk[0] := TTask.Create(
     procedure
     begin
-     TThread.Queue(nil, procedure
-     begin
-      caption := 'xxx';   // sincronizar a atualização da janela.
-     end);
+      TThread.Queue(nil,
+        procedure
+        begin
+          caption := 'xxx'; // sincronizar a atualização da janela.
+        end);
     end);
   tsk[0].Start;
 
-  tsk[2] := TTask.create(
+  tsk[2] := TTask.Create(
     procedure
     var
       k: integer;
     begin
       i := 1;
-      sleep(1000);
+      Sleep(10000);
       for k := 0 to 10000 do
         inc(i);
     end);
 
-  tsk[1] := TTask.create(
+  tsk[1] := TTask.Create(
     procedure
     var
       k: integer;
@@ -72,24 +158,29 @@ begin
       n := n;
       for k := 0 to 1000 do
         inc(n);
-      add( 'N');
+      add('N');
     end);
 
   tsk[2].Start;
   tsk[1].Start;
 
-  TTask.WaitforAll(tsk);
+ if CheckBox1.Checked then
+    TTask.WaitForAllEx(tsk)
+ else
+    TTask.WaitForAll(tsk);
 
-  memo1.lines.add('xxxxxxxx N: '+IntToStr(n)+' I: '+IntToStr(i));
+  Memo1.lines.add('xxxxxxxx N: ' + IntToStr(n) + ' I: ' + IntToStr(i));
 
-  TParallel.For(
-  100,105,procedure(i:integer)
-  begin
-    add(IntToStr(i));
-  end)   ;
+  TParallel.For(100, 105,
+    procedure(i: integer)
+    begin
+      add(IntToStr(i));
+    end);
 
-  memo1.lines.add(' N: '+IntToStr(n)+' I: '+IntToStr(i));
+  Memo1.lines.add(' N: ' + IntToStr(n) + ' I: ' + IntToStr(i));
 
 end;
+
+{ TTaskHelper }
 
 end.

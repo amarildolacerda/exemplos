@@ -2,8 +2,8 @@ object Form8: TForm8
   Left = 0
   Top = 0
   Caption = 'Form8'
-  ClientHeight = 54
-  ClientWidth = 241
+  ClientHeight = 49
+  ClientWidth = 254
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -38,6 +38,6 @@ object Form8: TForm8
     MaxValue = 100
     MinValue = 0
     TabOrder = 1
-    Value = 5
+    Value = 25
   end
 end

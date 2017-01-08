@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2016/07/03 17:12:53.397,=C:\git\Exemplos\Dia24_ProgressParallel\Unit1.pas</Transaction>
-    <Transaction>2016/07/03 17:26:02.077,C:\git\Exemplos\Dia24_ProgressParallel\AppErrorParallel.dproj=C:\git\Exemplos\Dia24_ProgressParallel\AppProgrParallel.dproj</Transaction>
-    <Transaction>2016/07/03 17:26:09.441,C:\git\Exemplos\Dia24_ProgressParallel\Unit8.pas=</Transaction>
+	<Transactions>
+    <Transaction>2016/07/03 17:12:53.000.397,=C:\git\Exemplos\Dia24_ProgressParallel\Unit1.pas</Transaction>
+    <Transaction>2016/07/03 17:26:02.000.077,C:\git\Exemplos\Dia24_ProgressParallel\AppProgrParallel.dproj=C:\git\Exemplos\Dia24_ProgressParallel\AppErrorParallel.dproj</Transaction>
+    <Transaction>2016/07/03 17:26:09.000.441,C:\git\Exemplos\Dia24_ProgressParallel\Unit8.pas=</Transaction>
   </Transactions>
 </BorlandProject>

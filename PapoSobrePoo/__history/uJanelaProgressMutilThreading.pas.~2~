@@ -1,0 +1,38 @@
+unit uJanelaProgressMutilThreading;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  System.LogEvents.Progress,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm43 = class(TForm)
+    Memo1: TMemo;
+    Button1: TButton;
+  private
+    { Private declarations }
+     procedure LogProgressEvent(sender: TObject; ATipo: TLogEventType;
+    msg: string; APosition: double);
+
+  public
+    { Public declarations }
+  end;
+
+var
+  Form43: TForm43;
+
+implementation
+
+{$R *.dfm}
+
+Uses system.LogEvents;
+
+procedure TForm43.LogProgressEvent(sender: TObject; ATipo: TLogEventType;
+  msg: string; APosition: double);
+begin
+   memo1.lines.Add(  msg  );
+end;
+
+end.

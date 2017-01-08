@@ -56,13 +56,14 @@ begin
       var
         n: integer;
       begin
-        n := Random(10000);
-        if n < 5000 then
-          LogEvents.Log('Erro exemplo ' + intToStr(n))
+        n := i ;//Random(10000);
+        if (i mod 2) = 1 then
+          LogEvents.Log('Impar: Erro exemplo ' + intToStr(i))
           // use como padrão mensagem IDENTIFICADO = 0
         else
-          LogEvents.DoMsg(nil, 1, 'LOG.....' + intToStr(n));
+          LogEvents.DoMsg(nil, 1, 'Par: LOG.....' + intToStr(i));
         // separar as mensagens de sucesso   (IDENTIFICADO=1)
+        LogEvents.Sleep(1000);
       end).start;
 end;
 
@@ -71,8 +72,6 @@ begin
   // retira o registro de recebimento de mensagem.
   LogEvents.unregister(self);
 end;
-
-
 
 procedure TForm1.Button2Click(Sender: TObject);
 begin
@@ -88,23 +87,30 @@ begin
 
   // usado metodo ANONIMOS para tratar exception internamente
   LogEvents.Run(
-  procedure begin
-       // força um exception
-       raise Exception.Create('Error Message');
-  end);
-
+    procedure
+    begin
+      // força um exception
+      raise Exception.create('Error Message');
+    end);
 
 end;
 
 procedure TForm1.DoErro(Sender: TObject; msg: string);
 begin
-  Memo1.lines.add(msg);
+  TThread.Queue(nil,
+    procedure
+    begin
+      Memo1.lines.add(msg);
+    end);
 end;
 
 procedure TForm1.DoSucesso(Sender: TObject; msg: string);
 begin
-  Memo2.lines.add(msg);
+  TThread.Queue(nil,
+    procedure
+    begin
+      Memo2.lines.add(msg);
+    end);
 end;
-
 
 end.

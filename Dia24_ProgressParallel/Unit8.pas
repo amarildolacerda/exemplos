@@ -29,19 +29,22 @@ implementation
 
 {$R *.dfm}
 
-
 const
-  LSeed = 1000;
+  LSeed = 10000;
 
-  procedure TForm8.Prog(msg: string; ATipo: TLogEventType);
-  var
-    n: integer;
-  begin
-    LogEvents.DoProgress(self, 0, ATipo, msg);
-    n := Random(LSeed);
-    sleep(n);
-  end;
+procedure TForm8.Prog(msg: string; ATipo: TLogEventType);
+var
+  n,x: integer;
+begin
+  LogEvents.DoProgress(self, 0, ATipo, msg);
+  n := Random(LSeed);
 
+
+  //sleep(n);
+  LogEvents.Sleep(n);
+  //TThread.Sleep(n);
+
+end;
 
 procedure TForm8.Button1Click(Sender: TObject);
 var
@@ -50,8 +53,9 @@ var
 
 begin
   // inicializa a janela de progresso
+  LogEvents.Syncronized := false;
   LProgr := TProgressEvents.new;
-  LProgr.max := 100; // opcional: marca o número máximo itens
+  LProgr.max := 1000; // opcional: marca o número máximo itens
   LProgr.MaxThreads := SpinEdit1.Value;
   // indica o número máximo de threads em paralelo
   LProgr.CanCancel := false; // marca se pode cancelar a operação
