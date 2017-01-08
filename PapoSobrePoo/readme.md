@@ -1,6 +1,6 @@
 
  Exemplos de POO
  
-Os exemplos da pasta Aula são os utilizados na apresentações de POO mostrados em Dezembro/2016
+Os exemplos "PopSobrePOO" são os utilizados nas apresentações de POO iniciado em Dezembro/2016
 
 
