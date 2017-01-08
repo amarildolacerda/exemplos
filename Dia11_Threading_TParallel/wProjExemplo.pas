@@ -38,6 +38,7 @@ begin
     end);
 end;
 
+// criando WaitForAllEx
 Type
   TTaskHelper = class helper for TTask
   private type
