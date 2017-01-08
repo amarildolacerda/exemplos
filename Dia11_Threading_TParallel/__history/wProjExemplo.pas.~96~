@@ -11,6 +11,7 @@ type
   TForm44 = class(TForm)
     Memo1: TMemo;
     Button1: TButton;
+    CheckBox1: TCheckBox;
     procedure Button1Click(Sender: TObject);
   private
     procedure add(s: String);
@@ -26,7 +27,7 @@ implementation
 
 {$R *.dfm}
 
-uses System.SyncObjs, System.Threading;
+uses System.Diagnostics, System.SyncObjs, System.Threading;
 
 procedure TForm44.add(s: String);
 begin
@@ -37,6 +38,7 @@ begin
     end);
 end;
 
+// criando WaitForAllEx
 Type
   TTaskHelper = class helper for TTask
   private type
@@ -50,79 +52,100 @@ Type
     end;
   public
     class function WaitForAllEx(AArray: Array of ITask;
-    ATimeOut: int64 = INFINITE):boolean;
+    ATimeOut: int64 = INFINITE): boolean;
   end;
 
 class function TTaskHelper.WaitForAllEx(AArray: array of ITask;
-ATimeOut: int64 = INFINITE):boolean;
+ATimeOut: int64 = INFINITE): boolean;
 var
+  FEvent: TEvent;
   task: TUnsafeTaskEx;
   i: integer;
   taskInter: TArray<TUnsafeTaskEx>;
-  // CompleteProc: TProc<ITask>;
   completou: boolean;
-  // FEvent: TEvent;
   Canceled, Exceptions: boolean;
+  ProcCompleted: TProc<ITask>;
+  LHandle: THandle;
+  LStop: TStopwatch;
 begin
+  LStop := TStopwatch.StartNew;
+  ProcCompleted := procedure(ATask: ITask)
+    begin
+      FEvent.SetEvent;
+    end;
+
   Canceled := false;
   Exceptions := false;
   result := true;
-  for i := low(AArray) to High(AArray) do
-  begin
-    task.Value := TTask(AArray[i]);
-    if task.Value = nil then
-      raise EArgumentNilException.Create('Wait Nil Task');
+  try
+    for i := low(AArray) to High(AArray) do
+    begin
+      task.Value := TTask(AArray[i]);
+      if task.Value = nil then
+        raise EArgumentNilException.Create('Wait Nil Task');
 
-    completou := task.Value.IsComplete;
-    if not completou then
-    begin
-      taskInter := taskInter + [task];
-    end
-    else
-    begin
-      if task.Value.HasExceptions then
-        Exceptions := True
-      else if task.Value.IsCanceled then
-        Canceled := True;
-    end;
-  end;
-
-  { CompleteProc := procedure(ATask: ITask)
-    begin
-    FEvent.SetEvent;
-    end;
-    FEvent := TEvent.Create();
-  } try
-    for task in taskInter do
-    begin
-      while not task.Value.IsComplete do
+      completou := task.Value.IsComplete;
+      if not completou then
       begin
-        try
-          TThread.Queue(nil,
-            procedure
-            begin
-              application.ProcessMessages;
-            end);
-        finally
-        end;
-      end;
-      if task.Value.IsComplete then
+        taskInter := taskInter + [task];
+      end
+      else
       begin
         if task.Value.HasExceptions then
-          Exceptions := True
+          Exceptions := true
         else if task.Value.IsCanceled then
-          Canceled := True;
-        result := result and not (Exceptions or Canceled);
+          Canceled := true;
       end;
     end;
-  finally
-    // FEvent.Free;
+
+    try
+      FEvent := TEvent.Create();
+      for task in taskInter do
+      begin
+        try
+          FEvent.ResetEvent;
+          if LStop.ElapsedMilliseconds > ATimeOut then
+            break;
+          task.Value.AddCompleteEvent(ProcCompleted);
+          while not task.Value.IsComplete do
+          begin
+            try
+              if LStop.ElapsedMilliseconds > ATimeOut then
+                break;
+              LHandle := FEvent.Handle;
+               TThread.Queue(nil,
+                procedure
+                begin
+                 if not (MsgWaitForMultipleObjects(1, LHandle, false, 1, QS_ALLPOSTMESSAGE) =WAIT_OBJECT_0 + 1)  then
+                    //application.ProcessMessages;
+                end);
+            finally
+            end;
+          end;
+          if task.Value.IsComplete then
+          begin
+            if task.Value.HasExceptions then
+              Exceptions := true
+            else if task.Value.IsCanceled then
+              Canceled := true;
+          end;
+        finally
+          task.Value.removeCompleteEvent(ProcCompleted);
+
+        end;
+      end;
+    finally
+      FEvent.Free;
+    end;
+  except
+    result := false;
   end;
 
-  if not Result or (not Exceptions and not Cancelled) then
+  if (not Exceptions and not Canceled) then
     Exit;
   if Exceptions or Canceled then
-    raise EOperationCancelled.CreateRes('One Or More Tasks HasExceptions/Canceled');
+    raise EOperationCancelled.Create
+      ('One Or More Tasks HasExceptions/Canceled');
 
 end;
 
@@ -167,7 +190,10 @@ begin
   tsk[2].Start;
   tsk[1].Start;
 
-  TTask.WaitForAllEx(tsk, 90000000);
+  if CheckBox1.Checked then
+    TTask.WaitForAllEx(tsk)
+  else
+    TTask.WaitForAll(tsk);
 
   Memo1.lines.add('xxxxxxxx N: ' + IntToStr(n) + ' I: ' + IntToStr(i));
 
