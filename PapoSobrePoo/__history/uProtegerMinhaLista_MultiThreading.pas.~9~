@@ -1,0 +1,137 @@
+unit uProtegerMinhaLista_MultiThreading;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
+  FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+
+type
+  TForm43 = class(TForm)
+    Memo1: TMemo;
+    Iniciar: TButton;
+    procedure IniciarClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    FConnection: TFDConnection;
+    procedure SetConnection(const Value: TFDConnection);
+    { Private declarations }
+  public
+    { Public declarations }
+    property Connection: TFDConnection read FConnection write SetConnection;
+  end;
+
+var
+  Form43: TForm43;
+
+implementation
+
+{$R *.dfm}
+
+Uses System.Threading;
+
+type
+
+  TStringListThreadSafe = class
+    private
+      FList:TStringlist;
+    public
+      constructor create;
+      destructor destroy;override;
+      function LockList:TStringList;
+      procedure UnLockList;
+  end;
+
+
+  TMinhaThreadList = class(TThreadList)
+
+  end;
+
+var
+  FLista: TStringListThreadSafe;
+
+procedure TForm43.FormCreate(Sender: TObject);
+begin
+  FLista := TStringListThreadSafe.create;
+  // abrir tabela.  -  local errado
+
+end;
+
+procedure TForm43.FormDestroy(Sender: TObject);
+begin
+  FLista.free;
+end;
+
+procedure TForm43.FormShow(Sender: TObject);
+begin
+  // abrir tabela   - aqui local correto.
+end;
+
+procedure TForm43.IniciarClick(Sender: TObject);
+begin
+  tthread.Queue(nil,
+    procedure
+    begin
+      Memo1.Lines.Add('tste, protegido.....      TThreadSafe')
+    end);
+
+  TParallel.&For(1, 1000,
+    procedure(i: integer)
+    begin
+        Flista.add( DateTimeToStr(now)+'-'+ i.ToString );
+        TThread.Queue(nil, procedure begin
+           memo1.Lines.Add( DateTimeToStr(now)+'-'+ i.ToString );
+        end);
+    end);
+
+
+
+
+end;
+
+procedure TForm43.SetConnection(const Value: TFDConnection);
+begin
+  FConnection := Value;
+end;
+
+// exemplo
+{
+  with TForm43.create(nil) do
+  try
+  connection := xxxx;
+  show;
+  finally
+  free;
+  end;
+}
+
+{ TStringListThreadSafe }
+
+constructor TStringListThreadSafe.create;
+begin
+   FList := TStringList.Create;
+end;
+
+destructor TStringListThreadSafe.destroy;
+begin
+  FList.Free;
+  inherited;
+end;
+
+function TStringListThreadSafe.LockList: TStringList;
+begin
+
+end;
+
+procedure TStringListThreadSafe.UnLockList;
+begin
+
+end;
+
+end.
