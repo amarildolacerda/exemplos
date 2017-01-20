@@ -1,0 +1,45 @@
+unit uFiredacThreaded;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
+  FireDAC.Phys, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  FireDAC.Comp.Client, FireDAC.Comp.DataSet, FireDAC.Stan.Pool, FireDAC.Phys.FB,
+  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Vcl.ExtCtrls, Vcl.StdCtrls;
+
+type
+  TForm43 = class(TForm)
+    FDManager1: TFDManager;
+    FDQuery1: TFDQuery;
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    FDConnection1: TFDConnection;
+    Button1: TButton;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form43: TForm43;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm43.Timer1Timer(Sender: TObject);
+begin
+  TThread.Queue(nil, procedure begin
+       FDQuery1.Close;
+       fdQuery1.Open;
+  end);
+end;
+
+end.

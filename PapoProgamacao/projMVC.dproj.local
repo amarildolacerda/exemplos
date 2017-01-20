@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2017/01/19 22:07:02.113,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit45.pas</Transaction>
+    <Transaction>2017/01/19 22:08:15.141,C:\Git\Exemplos\exemplos\PapoProgamacao\Unit45.fmx=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit45.fmx</Transaction>
+    <Transaction>2017/01/19 22:08:15.141,C:\Git\Exemplos\exemplos\PapoProgamacao\Unit45.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit45.pas</Transaction>
+    <Transaction>2017/01/19 22:08:22.089,C:\Git\Exemplos\exemplos\PapoProgamacao\projMVC.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project20.dproj</Transaction>
+    <Transaction>2017/01/19 22:10:16.659,=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:12:04.325,C:\Git\Exemplos\exemplos\PapoProgamacao\Model\mvc.Interf.pas=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:12:26.736,=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:13:01.051,C:\Git\Exemplos\exemplos\PapoProgamacao\Model\mvc.Model.pas=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:14:05.804,C:\Git\Exemplos\exemplos\PapoProgamacao\View\app.main.fmx=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit45.fmx</Transaction>
+    <Transaction>2017/01/19 22:14:05.804,C:\Git\Exemplos\exemplos\PapoProgamacao\View\app.main.pas=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit45.pas</Transaction>
+    <Transaction>2017/01/19 22:14:42.238,=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:14:53.838,C:\Git\Exemplos\exemplos\PapoProgamacao\Controller\mvc.Controller.pas=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:25:37.402,=C:\Git\Exemplos\exemplos\PapoProgamacao\Struct\mvc.Controller.pas</Transaction>
+    <Transaction>2017/01/19 22:25:37.428,=C:\Git\Exemplos\exemplos\PapoProgamacao\Struct\mvc.Interf.pas</Transaction>
+    <Transaction>2017/01/19 22:25:37.461,=C:\Git\Exemplos\exemplos\PapoProgamacao\Struct\mvc.Model.pas</Transaction>
+    <Transaction>2017/01/19 22:42:49.288,=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+    <Transaction>2017/01/19 22:43:06.570,C:\Git\Exemplos\exemplos\PapoProgamacao\Struct\mvc.ApplicationController.pas=C:\Git\Exemplos\exemplos\PapoProgamacao\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,27 @@
+unit mvc.Interf;
+
+interface
+
+type
+
+  IController = interface;
+
+  IModel = interface
+    ['{FC5669F0-546C-4F0D-B33F-5FB2BA125DBC}']
+  end;
+
+  IView = interface
+    ['{A1E53BAC-BFCE-4D90-A54F-F8463D597E43}']
+    procedure SetController(const AController: IController);
+  end;
+
+  IController = interface
+    ['{A7758E82-3AA1-44CA-8160-2DF77EC8D203}']
+    function AddView(const AView:IView):integer;
+    function IndexOf( const AView:IView):integer;
+    //procedure RemoveView( const AView:IView);
+  end;
+
+implementation
+
+end.

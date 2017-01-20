@@ -1,0 +1,13 @@
+unit mvc.Interf;
+
+interface
+
+
+type
+      IModel = interface
+        ['{FC5669F0-546C-4F0D-B33F-5FB2BA125DBC}']
+      end;
+
+implementation
+
+end.

@@ -1,0 +1,56 @@
+unit mvc.Controller;
+
+interface
+
+uses mvc.Interf, System.Generics.Collections;
+
+type
+
+  TController = class(TInterfacedObject, IController)
+  private
+    FList: TList<IView>;
+  protected
+    function AddView(const AView: IView): integer;
+    function IndexOf(const AView: IView): integer;
+    procedure Delete(const Index: integer);
+    function Count: integer;
+  public
+  end;
+
+
+implementation
+
+{ TController }
+
+function TController.AddView(const AView: IView): integer;
+begin
+  FList.Add(AView);
+  result := FList.Count - 1;
+end;
+
+function TController.Count: integer;
+begin
+  result := FList.Count;
+end;
+
+procedure TController.Delete(const Index: integer);
+begin
+  FList.Delete(Index);
+end;
+
+function TController.IndexOf(const AView: IView): integer;
+begin
+  result := FList.IndexOf(AView);
+end;
+
+{ TApplicationController }
+
+procedure TApplicationController.Run(AClass: TComponentClass; var reference);
+begin
+  Application.Initialize;
+  Application.CreateForm(AClass, reference);
+  Application.Run;
+
+end;
+
+end.

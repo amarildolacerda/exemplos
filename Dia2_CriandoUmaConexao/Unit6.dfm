@@ -75,15 +75,16 @@ object Form6: TForm6
     OnClick = Button2Click
   end
   object ALQuery1: TALQuery
-    Active = False
-    BeforeOpen = ALQuery1BeforeOpen
+    CachedUpdates = True
+    RequestLive = False
     SQL.Strings = (
-      'Select * from ctgrupo')
+      'Select * From CtGrupo')
     UpdateMode = upWhereKeyOnly
-    DisableShowError = False
+    MacroCheck = True
     SQLFields = '*'
     SQLDBFile = 'CtGrupo'
     NewRecno = True
+    BeforeOpen = ALQuery1BeforeOpen
     Left = 32
     Top = 8
   end

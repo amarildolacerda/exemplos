@@ -1,0 +1,36 @@
+unit app.main;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  mvc.Interf,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs;
+
+type
+  TForm45 = class(TForm, IView)
+  private
+    { Private declarations }
+    FController: IController;
+  protected
+    procedure SetController(const AController: IController);
+
+  public
+    { Public declarations }
+  end;
+
+var
+  Form45: TForm45;
+
+implementation
+
+{$R *.fmx}
+{ TForm45 }
+
+procedure TForm45.SetController(const AController: IController);
+begin
+  FController := AController;
+end;
+
+end.

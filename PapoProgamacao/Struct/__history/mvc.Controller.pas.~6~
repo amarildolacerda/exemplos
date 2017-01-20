@@ -1,0 +1,29 @@
+unit mvc.Controller;
+
+interface
+
+uses mvc.Interf, System.Generics.Collections;
+
+type
+
+  TController = class(TInterfacedObject, IController)
+  private
+    FList: TList<IView>;
+  protected
+     function AddView(const AView:IView):integer;
+
+  public
+
+  end;
+
+implementation
+
+{ TController }
+
+function TController.AddView(const AView: IView): integer;
+begin
+    FList.Add(AView);
+    result := FList.Count -1;
+end;
+
+end.

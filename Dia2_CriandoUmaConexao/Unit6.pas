@@ -4,7 +4,11 @@ Interface
 
 Uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, DB, DBTables, db_STORE, StdCtrls, ExtCtrls, Buttons, Grids, DBGrids;
+  Dialogs, DB, DBTables, db_STORE, StdCtrls, ExtCtrls, Buttons, Grids, DBGrids,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
+  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
+  FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  Data.fireTables;
 
 Type
   TForm6 = Class(TForm)
@@ -37,7 +41,7 @@ Var
 Implementation
 
 {$R *.dfm}
-Uses iniFiles, mFunctions;
+Uses data.db_store_types, iniFiles, mFunctions;
 
 procedure TForm6.ALQuery1BeforeOpen(DataSet: TDataSet);
 begin
@@ -56,6 +60,8 @@ Begin
     End;
 
   LabeledEdit1.text := intToStr(Session.DatabaseCount);
+
+  ALQuery1.ReOpen;
 
 End;
 
@@ -91,7 +97,7 @@ Begin
 End;
 
 Procedure TForm6.Button1Click(Sender : TObject);
-Var bd: TDatabase;
+Var bd: TDatabaseBASE;
 Begin
 
 

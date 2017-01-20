@@ -1,0 +1,28 @@
+Project5.exe 1       17:32:11.084 Error - ClassName: Unit6.TForm6
+Databasename: Estoque
+Caption: Form6
+Caption: Form6
+Name: Form6
+ Message: Não foi possível abrir a tabela *\[FireDAC][Comp][Clnt]-340. Driver ID is not defined. Set TFDConnection.DriverName or add DriverID to your connection definition
+Comp:  Class: TALQuery
+DataBaseName: Estoque
+SQL: Select * From ctgrupo Where (grupo='001') 
+*\Select * From ctgrupo Where (grupo=:codigogrupo)
+
+---StackTrace----
+
+--------------------------
+Project5.exe 1       17:32:53.928 Error - ClassName: Unit6.TForm6
+Databasename: Estoque
+Caption: Form6
+Caption: Form6
+Name: Form6
+ Message: Não foi possível abrir a tabela *\[FireDAC][Comp][Clnt]-340. Driver ID is not defined. Set TFDConnection.DriverName or add DriverID to your connection definition
+Comp:  Class: TALQuery
+DataBaseName: Estoque
+SQL: Select * From ctgrupo Where (grupo='001') 
+*\Select * From ctgrupo Where (grupo=:grupo)
+
+---StackTrace----
+
+--------------------------

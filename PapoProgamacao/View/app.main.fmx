@@ -1,0 +1,11 @@
+object AppMain: TAppMain
+  Left = 0
+  Top = 0
+  Caption = 'Form45'
+  ClientHeight = 297
+  ClientWidth = 254
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+end

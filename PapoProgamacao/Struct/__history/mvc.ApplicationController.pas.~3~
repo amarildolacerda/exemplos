@@ -1,0 +1,28 @@
+unit mvc.ApplicationController;
+
+interface
+
+uses System.Classes, System.SysUtils, mvc.Interf;
+
+type
+
+  TApplicationController = class(TInterfacedObject, IApplicationController)
+  public
+    procedure Run(AClass: TComponentClass; var reference);
+  end;
+
+  function ApplicationController:IApplicationController;
+
+implementation
+
+var FApplication : IApplicationController;
+
+  function ApplicationController:IApplicationController;
+  begin
+     result := FApplication;
+  end;
+
+initialization
+
+
+end.

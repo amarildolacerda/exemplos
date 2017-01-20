@@ -1,0 +1,4 @@
+c:\git\exemplos\exemplos\dia2_criandoumaconexao\logs\Project5_Debug_20170111.log
+C:\Program Files (x86)\Store\Config\zConnections.ini
+C:\Program Files (x86)\Store\Config\estoque.ini
+C:\Program Files (x86)\Store\Config\supervisor.ini

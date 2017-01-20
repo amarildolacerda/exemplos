@@ -1,0 +1,72 @@
+object Form43: TForm43
+  Left = 0
+  Top = 0
+  Caption = 'Form43'
+  ClientHeight = 605
+  ClientWidth = 788
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 16
+    Top = 24
+    Width = 473
+    Height = 561
+    DataSource = DataSource1
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object Button1: TButton
+    Left = 512
+    Top = 56
+    Width = 137
+    Height = 25
+    Caption = 'Executar'
+    TabOrder = 1
+    OnClick = Button1Click
+  end
+  object FDManager1: TFDManager
+    FormatOptions.AssignedValues = [fvMapRules]
+    FormatOptions.OwnMapRules = True
+    FormatOptions.MapRules = <>
+    Active = True
+    Left = 48
+    Top = 64
+  end
+  object FDQuery1: TFDQuery
+    Active = True
+    Connection = FDConnection1
+    SQL.Strings = (
+      'select * from ctgrupo')
+    Left = 64
+    Top = 528
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQuery1
+    Left = 120
+    Top = 536
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=SQLEstoque')
+    Connected = True
+    LoginPrompt = False
+    Left = 72
+    Top = 176
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 664
+    Top = 56
+  end
+end

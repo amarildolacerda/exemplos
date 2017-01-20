@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2017/01/11 21:59:46.775,=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit43.pas</Transaction>
+    <Transaction>2017/01/11 22:58:22.638,C:\Git\Exemplos\exemplos\PapoSobrePoo\ProjFiredacThreaded.dproj=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Project20.dproj</Transaction>
+    <Transaction>2017/01/11 22:58:52.105,C:\Git\Exemplos\exemplos\PapoSobrePoo\uFiredacThreaded.dfm=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit43.dfm</Transaction>
+    <Transaction>2017/01/11 22:58:52.105,C:\Git\Exemplos\exemplos\PapoSobrePoo\uFiredacThreaded.pas=C:\Users\amari\Documents\Embarcadero\Studio\Projects\Unit43.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,56 @@
+object Form43: TForm43
+  Left = 0
+  Top = 0
+  Caption = 'Form43'
+  ClientHeight = 605
+  ClientWidth = 436
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 24
+    Top = 24
+    Width = 377
+    Height = 425
+    DataSource = DataSource1
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object FDManager1: TFDManager
+    FormatOptions.AssignedValues = [fvMapRules]
+    FormatOptions.OwnMapRules = True
+    FormatOptions.MapRules = <>
+    Active = True
+    Left = 48
+    Top = 64
+  end
+  object FDQuery1: TFDQuery
+    ConnectionName = 'SQLite_Demo'
+    Left = 40
+    Top = 144
+  end
+  object FDTable1: TFDTable
+    Active = True
+    IndexFieldNames = 'CustomerID'
+    ConnectionName = 'Access_Demo'
+    UpdateOptions.UpdateTableName = 'Customers'
+    TableName = 'Customers'
+    Left = 72
+    Top = 248
+  end
+  object DataSource1: TDataSource
+    DataSet = FDTable1
+    Left = 208
+    Top = 240
+  end
+end
